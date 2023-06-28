@@ -20,8 +20,10 @@ use App\Http\Controllers\UserController;
 Route::get('/login', [LoginController::class, 'index'])->middleware('guest')->name('login');
 Route::post('/login', [LoginController::class, 'authenticate'])->middleware('guest');
 
+Route::post('/logout', [LoginController::class, 'logout']);
+
 Route::get('/', function () {
     return view('pages.dashboard.index');
-});
+})->middleware('auth');
 
 Route::resource('/user', UserController::class)->middleware('auth');
