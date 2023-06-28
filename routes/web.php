@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\Auth\LoginController;
+
 use App\Http\Controllers\UserController;
 
 /*
@@ -15,8 +17,11 @@ use App\Http\Controllers\UserController;
 |
 */
 
+Route::get('/login', [LoginController::class, 'index'])->middleware('guest')->name('login');
+Route::post('/login', [LoginController::class, 'authenticate'])->middleware('guest');
+
 Route::get('/', function () {
     return view('pages.dashboard.index');
 });
 
-Route::resource('/user', UserController::class);
+Route::resource('/user', UserController::class)->middleware('auth');
