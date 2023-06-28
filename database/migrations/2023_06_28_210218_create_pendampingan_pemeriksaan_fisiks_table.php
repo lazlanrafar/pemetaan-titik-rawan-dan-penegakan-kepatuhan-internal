@@ -28,7 +28,7 @@ return new class extends Migration
             $table->dateTime('waktu_selesai')->nullable();
             $table->string('pemberitahuan_kesiapan_barang')->default(false);
             $table->string('kondisi_tempat')->nullable();
-            $table->string('jumlah_kemasan')->nullable();
+            $table->string('jumlah_kemasan_diperiksa')->nullable();
             $table->string('kondisi_segel')->nullable();
             $table->string('jumlah_tenaga_bongkar')->nullable();
             $table->string('alat_bongkar_muat')->nullable();
