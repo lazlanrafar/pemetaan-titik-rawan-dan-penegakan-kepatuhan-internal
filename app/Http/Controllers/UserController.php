@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 
 class UserController extends Controller
@@ -23,19 +24,21 @@ class UserController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
     {
-        //
+        User::create([
+            'name' => $request['name'],
+            'nip' => $request['nip'],
+            'email' => $request['email'],
+            'role' => $request['role'],
+            'password' => Hash::make($request['password']),
+            'phone' => $request['phone'],
+            'address' => $request['address'],
+        ]);
+
+        return redirect()->route('user.index')->with('success', 'Data berhasil ditambahkan');
     }
 
     /**

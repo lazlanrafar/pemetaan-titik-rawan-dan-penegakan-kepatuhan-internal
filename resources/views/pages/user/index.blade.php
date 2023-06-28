@@ -27,8 +27,8 @@
                                 <thead>
                                     <tr>
                                         <th>No</th>
+                                        <th>NIP</th>
                                         <th>Nama</th>
-                                        <th>Jabatan</th>
                                         <th>Email</th>
                                         <th>Akses</th>
                                         <th>Action</th>
@@ -39,8 +39,8 @@
                                     @foreach ($items as $item)
                                         <tr>
                                             <td>{{ $i }}</td>
-                                            <td>{{ $item->nama }}</td>
-                                            <td>{{ $item->jabatan }}</td>
+                                            <td>{{ $item->nip }}</td>
+                                            <td>{{ $item->name }}</td>
                                             <td>{{ $item->email }}</td>
                                             <td>{{ $item->akses }}</td>
                                             <td>
