@@ -1,6 +1,6 @@
-<aside class="main-sidebar sidebar-dark-warning elevation-4">
+<aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="/" class="brand-link bg-warning">
+    <a href="/" class="brand-link">
         {{-- <img src="{{ url('/bright-dark.png') }}" alt="AdminLTE Logo" class="brand-image" /> --}}
         <span class="brand-text font-weight-normal">Logo</span>
     </a>
