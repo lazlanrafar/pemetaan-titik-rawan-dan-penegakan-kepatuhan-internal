@@ -1,6 +1,6 @@
 <footer class="main-footer">
-    <strong>Copyright &copy; 2022 -
-        Kevin Kusuma Wicaksono</strong>
+    <strong>Copyright &copy; 2023 -
+        Wira Priharto</strong>
     All rights reserved.
 </footer>
 
