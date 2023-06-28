@@ -21,6 +21,8 @@
                         <div class="card-body">
                             <a type="button" class="btn btn-primary" data-toggle="modal" data-target="#formCreate"><i
                                     class="fa fa-plus"></i> Tambah</a>
+                            @include('pages.user.create')
+
                             <table id="defaultTable" class="table table-bordered table-striped">
                                 <thead>
                                     <tr>

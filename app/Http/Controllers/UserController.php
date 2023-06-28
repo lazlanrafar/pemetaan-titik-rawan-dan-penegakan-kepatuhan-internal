@@ -12,9 +12,12 @@ class UserController extends Controller
      */
     public function index()
     {
+        $list_role = ['Pelaksana', 'Kepala Seksi', 'Kepala Bidang'];
+
         $items = User::all();
 
         return view('pages.user.index', [
+            "list_role" => $list_role,
             "items" => $items
         ]);
     }
