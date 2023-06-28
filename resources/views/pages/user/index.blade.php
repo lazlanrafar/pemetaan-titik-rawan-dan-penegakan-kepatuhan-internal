@@ -30,7 +30,8 @@
                                         <th>NIP</th>
                                         <th>Nama</th>
                                         <th>Email</th>
-                                        <th>Akses</th>
+                                        <th>Role</th>
+                                        <th>Alamat</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -42,7 +43,8 @@
                                             <td>{{ $item->nip }}</td>
                                             <td>{{ $item->name }}</td>
                                             <td>{{ $item->email }}</td>
-                                            <td>{{ $item->akses }}</td>
+                                            <td>{{ $item->role }}</td>
+                                            <td>{{ $item->address }}</td>
                                             <td>
                                                 <form id="formDelete{{ $item->id }}"
                                                     action="{{ route('user.destroy', $item->id) }}" method="POST"
@@ -76,33 +78,6 @@
                                                     data-target="#formUpdate{{ $item->id }}">
                                                     <i class="fa fa-edit"></i>
                                                 </a>
-                                                <form id="formReset{{ $item->id }}"
-                                                    action="/user/resetpass/{{ $item->id }}" method="POST"
-                                                    class="d-inline">
-                                                    @csrf
-                                                    <a type="button" class="btn btn-primary"
-                                                        onclick="handleReset({{ $item->id }})">
-                                                        <i class="fa fa-unlock"></i>
-                                                    </a>
-                                                </form>
-
-                                                <script>
-                                                    function handleReset(id) {
-                                                        Swal.fire({
-                                                            title: 'Apakah kamu yakin?',
-                                                            text: "kamu akan mereset password dari user ini",
-                                                            icon: 'warning',
-                                                            showCancelButton: true,
-                                                            confirmButtonColor: '#3085d6',
-                                                            cancelButtonColor: '#d33',
-                                                            confirmButtonText: 'Ya, reset!'
-                                                        }).then((result) => {
-                                                            if (result.isConfirmed) {
-                                                                document.getElementById('formReset' + id).submit();
-                                                            }
-                                                        })
-                                                    }
-                                                </script>
                                             </td>
                                         </tr>
                                         <?php $i++; ?>
