@@ -9,8 +9,7 @@
     <div class="sidebar">
         <!-- Sidebar Menu -->
         <nav class="mt-2">
-            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
-                data-accordion="false">
+            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                 <li class="nav-item">
                     <a href="/" class="nav-link {{ Request::is('/') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -21,6 +20,13 @@
                     <a href="/laporan" class="nav-link {{ Request::is('laporan') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-book"></i>
                         <p>Laporan</p>
+                    </a>
+                </li>
+                <li class="nav-header">Setup</li>
+                <li class="nav-item">
+                    <a href="/user" class="nav-link {{ Request::is('user') ? 'active' : '' }}">
+                        <i class="nav-icon fas fa-users"></i>
+                        <p>User</p>
                     </a>
                 </li>
             </ul>
