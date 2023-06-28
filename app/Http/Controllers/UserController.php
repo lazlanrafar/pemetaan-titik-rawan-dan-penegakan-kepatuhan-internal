@@ -50,19 +50,20 @@ class UserController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
-
-    /**
      * Update the specified resource in storage.
      */
     public function update(Request $request, string $id)
     {
-        //
+        $data = $request->all();
+        if($data['password'] == ""){
+            unset($data['password']);
+        }else{
+            $data['password'] = Hash::make($data['password']);
+        }
+
+        $item = User::findOrFail($id);
+        $item->update($data);
+        return redirect()->route('user.index')->with('success', 'Data berhasil diubah');
     }
 
     /**

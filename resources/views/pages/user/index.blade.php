@@ -78,6 +78,8 @@
                                                     data-target="#formUpdate{{ $item->id }}">
                                                     <i class="fa fa-edit"></i>
                                                 </a>
+                                                @include('pages.user.update')
+
                                             </td>
                                         </tr>
                                         <?php $i++; ?>
