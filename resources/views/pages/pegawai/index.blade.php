@@ -78,7 +78,7 @@
                                                     data-target="#formUpdate{{ $item->id }}">
                                                     <i class="fa fa-edit"></i>
                                                 </a>
-                                                {{-- @include('pages.pegawai.update') --}}
+                                                @include('pages.pegawai.update')
 
                                             </td>
                                         </tr>

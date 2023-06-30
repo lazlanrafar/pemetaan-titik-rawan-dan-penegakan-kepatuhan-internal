@@ -3,12 +3,12 @@
     aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
-            <form action="{{ route('user.update', $item->id) }}" method="POST">
+            <form action="{{ route('pegawai.update', $item->id) }}" method="POST">
                 @csrf
                 @method('PUT')
                 <div class="modal-header">
                     <h5 class="modal-title" id="formUpdateLabel">
-                        Update User
+                        Update Pegawai - {{ $item->name }}
                     </h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
@@ -36,14 +36,6 @@
                                 <label for="email-address">Email address</label>
                                 <input type="email" class="form-control" id="email-address" placeholder="Enter email"
                                     name="email" value="{{ $item->email }}" required />
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="password">Password</label>
-                                <span class="small text-muted">- Masukan Password untuk ganti password</span>
-                                <input type="password" class="form-control" id="password" placeholder="Password"
-                                    name="password" />
                             </div>
                         </div>
                         <div class="col-md-6">
