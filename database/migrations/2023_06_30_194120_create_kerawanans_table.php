@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('kerawanans', function (Blueprint $table) {
             $table->id();
-            $table->string('kategori');
+            $table->json('kategori');
             $table->string('nama_lokasi');
             $table->string('koordinat_lokasi');
             $table->string('foto_lokasi');

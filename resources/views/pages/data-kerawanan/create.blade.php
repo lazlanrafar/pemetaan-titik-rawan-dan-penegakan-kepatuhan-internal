@@ -2,11 +2,11 @@
 <div class="modal fade" id="formCreate" tabindex="-1" role="dialog" aria-labelledby="formCreateLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
-            <form action="{{ route('pegawai.store') }}" method="POST">
+            <form action="{{ route('data-kerawanan.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="modal-header">
                     <h5 class="modal-title" id="formCreateLabel">
-                        Create Pegawai
+                        Create Data Kerawanan
                     </h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
@@ -19,7 +19,7 @@
                                 <label>Kategori*</label>
                                 <div class="select2-blue">
                                     <select class="select2" multiple="multiple" data-placeholder="Select a State"
-                                        style="width: 100%;" name="kategori" required>
+                                        style="width: 100%;" name="kategori[]" required>
                                         <option>Pilih Kategori</option>
                                         @foreach ($list_kategori as $kategori)
                                             <option value="{{ $kategori }}">{{ $kategori }}</option>
@@ -45,7 +45,7 @@
                         <div class="col-12">
                             <div class="form-group">
                                 <label for="fotoLokasi">Foto Lokasi Kegiatan</label>
-                                <input type="file" class="form-control-file" id="fotoLokasi" name="koordinat_lokasi"
+                                <input type="file" class="form-control-file" id="fotoLokasi" name="foto_lokasi"
                                     required />
                             </div>
                         </div>

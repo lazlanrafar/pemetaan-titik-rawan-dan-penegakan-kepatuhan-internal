@@ -33,19 +33,26 @@ class DataKerawananController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'foto_lokasi' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+
+        $data = $request->all();
+
+        // kategori to json
+        $data['kategori'] = json_encode($data['kategori']);
+
+        $data['foto_lokasi'] = $request->file('foto_lokasi')->store(
+            'assets/data-kerawanan',
+            'public'
+        );
+
+        Kerawanan::create($data);
+        return redirect()->route('data-kerawanan.index')->with('success', 'Data berhasil ditambahkan');
     }
 
     /**
