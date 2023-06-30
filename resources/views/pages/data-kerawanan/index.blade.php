@@ -23,6 +23,31 @@
                                     class="fa fa-plus"></i> Tambah</a>
                             @include('pages.data-kerawanan.create')
 
+                            <hr />
+
+                            <div style="max-width: 400px">
+                                <label>Kategori</label>
+                                <select class="form-control" id="filterCategory" onchange="onChangeFilterCategory()">
+                                    <option {{ $kategori_active === 'All' ? 'selected' : '' }}>All</option>
+                                    @foreach ($list_kategori as $kategori)
+                                        <option value="{{ $kategori }}"
+                                            {{ $kategori_active === $kategori ? 'selected' : '' }}>{{ $kategori }}
+                                        </option>
+                                    @endforeach
+                                </select>
+                            </div>
+
+                            <script>
+                                function onChangeFilterCategory() {
+                                    var value = document.getElementById('filterCategory').value;
+                                    if (value == 'All') {
+                                        window.location.href = "{{ route('data-kerawanan.index') }}";
+                                    } else {
+                                        window.location.href = "{{ route('data-kerawanan.index') }}?kategori=" + value;
+                                    }
+                                }
+                            </script>
+
                             <table id="defaultTable" class="table table-bordered table-striped">
                                 <thead>
                                     <tr>

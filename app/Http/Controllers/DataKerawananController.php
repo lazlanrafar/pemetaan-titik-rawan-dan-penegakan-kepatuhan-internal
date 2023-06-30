@@ -26,13 +26,20 @@ class DataKerawananController extends Controller
 
         $items = Kerawanan::all();
 
-        // encode kategori
+        $kategori_active = 'All';
+        if (request()->has('kategori')) {
+            $kategori_active = request()->get('kategori');
+
+            $items = Kerawanan::where('kategori', 'LIKE', "%$kategori_active%")->get();
+        }
+
         foreach ($items as $item) {
             $item->kategori = json_decode($item->kategori);
         }
 
         return view('pages.data-kerawanan.index', [
             "list_kategori" => $list_kategori,
+            "kategori_active" => $kategori_active,
             "items" => $items
         ]);
     }
