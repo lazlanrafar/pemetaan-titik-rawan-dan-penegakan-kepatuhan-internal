@@ -25,8 +25,14 @@
                 </li>
                 <li class="nav-header">Setup</li>
                 <li class="nav-item">
-                    <a href="/user" class="nav-link {{ Request::is('user') ? 'active' : '' }}">
+                    <a href="/pegawai" class="nav-link {{ Request::is('pegawai') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-users"></i>
+                        <p>Pegawai</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/user" class="nav-link {{ Request::is('user') ? 'active' : '' }}">
+                        <i class="nav-icon fas fa-user"></i>
                         <p>User</p>
                     </a>
                 </li>

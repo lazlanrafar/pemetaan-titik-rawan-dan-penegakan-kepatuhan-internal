@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Auth\LoginController;
 
+use App\Http\Controllers\PegawaiController;
 use App\Http\Controllers\UserController;
 
 /*
@@ -26,4 +27,5 @@ Route::get('/', function () {
     return view('pages.dashboard.index');
 })->middleware('auth');
 
+Route::resource('/pegawai', PegawaiController::class)->middleware('auth');
 Route::resource('/user', UserController::class)->middleware('auth');
