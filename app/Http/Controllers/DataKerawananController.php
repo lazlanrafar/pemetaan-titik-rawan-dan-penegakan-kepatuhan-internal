@@ -69,19 +69,28 @@ class DataKerawananController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
-
-    /**
      * Update the specified resource in storage.
      */
     public function update(Request $request, string $id)
     {
-        //
+        $data = $request->all();
+
+        // kategori to json
+        $data['kategori'] = json_encode($data['kategori']);
+
+        $item = Kerawanan::findOrFail($id);
+
+        unset($data['foto_lokasi']);
+        if ($request->file('foto_lokasi')) {
+            $data['foto_lokasi'] = $request->file('foto_lokasi')->store(
+                'assets/data-kerawanan',
+                'public'
+            );
+        }
+
+        $item->update($data);
+
+        return redirect()->route('data-kerawanan.index')->with('success', 'Data berhasil diubah');
     }
 
     /**

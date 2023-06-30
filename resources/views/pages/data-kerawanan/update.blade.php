@@ -3,7 +3,7 @@
     aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
-            <form action="{{ route('data-kerawanan.update', $item->id) }}" method="POST">
+            <form action="{{ route('data-kerawanan.update', $item->id) }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
                 <div class="modal-header">
@@ -51,8 +51,7 @@
                             <div class="form-group">
                                 <label for="fotoLokasi">Foto Lokasi Kegiatan</label>
                                 <span>- Upload foto untuk update</span>
-                                <input type="file" class="form-control-file" id="fotoLokasi" name="foto_lokasi"
-                                    required />
+                                <input type="file" class="form-control-file" id="fotoLokasi" name="foto_lokasi" />
                             </div>
                         </div>
                         <div class="col-12">
