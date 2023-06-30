@@ -12,9 +12,22 @@ class DataKerawananController extends Controller
      */
     public function index()
     {
+        $list_kategori = [
+            "CUKAI - MMEA IMPORT",
+            "CUKAI - HASIL TEMBAKAU",
+            "CUKAI - MMEA LOCAL",
+            "EKSPOR - BARANG KIRIMAN/POS",
+            "FASILITAS - FTZ",
+            "IMPORT - BARANG KIRIMAN/POS",
+            "IMPORT - BARANG PENUMPANG",
+            "IMPORT - UMUM",
+            "EXPORT - UMUM",
+        ];
+
         $items = Kerawanan::all();
 
         return view('pages.data-kerawanan.index', [
+            "list_kategori" => $list_kategori,
             "items" => $items
         ]);
     }

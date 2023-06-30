@@ -21,7 +21,7 @@
                         <div class="card-body">
                             <a type="button" class="btn btn-primary" data-toggle="modal" data-target="#formCreate"><i
                                     class="fa fa-plus"></i> Tambah</a>
-                            @include('pages.pegawai.create')
+                            @include('pages.data-kerawanan.create')
 
                             <table id="defaultTable" class="table table-bordered table-striped">
                                 <thead>
@@ -47,7 +47,7 @@
                                             <td>{{ $item->address }}</td>
                                             <td>
                                                 <form id="formDelete{{ $item->id }}"
-                                                    action="{{ route('pegawai.destroy', $item->id) }}" method="POST"
+                                                    action="{{ route('data-kerawanan.destroy', $item->id) }}" method="POST"
                                                     class="d-inline">
                                                     @csrf
                                                     @method('delete')
@@ -78,7 +78,7 @@
                                                     data-target="#formUpdate{{ $item->id }}">
                                                     <i class="fa fa-edit"></i>
                                                 </a>
-                                                @include('pages.pegawai.update')
+                                                @include('pages.data-kerawanan.update')
 
                                             </td>
                                         </tr>

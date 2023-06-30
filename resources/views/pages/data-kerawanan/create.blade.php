@@ -14,42 +14,79 @@
                 </div>
                 <div class="modal-body">
                     <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-12">
                             <div class="form-group">
-                                <label for="namalengkap">Nama Lengkap</label>
-                                <input type="text" class="form-control" id="namalengkap"
-                                    placeholder="Enter Nama Lengkap" name="name" required />
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="nip">NIP</label>
-                                <input type="text" class="form-control" id="nip" placeholder="Enter NIP"
-                                    name="nip" required />
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="email-address">Email address</label>
-                                <input type="email" class="form-control" id="email-address" placeholder="Enter email"
-                                    name="email" />
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="phone">Phone</label>
-                                <input type="text" class="form-control" id="phone" placeholder="Phone"
-                                    name="phone" />
+                                <label>Kategori*</label>
+                                <div class="select2-blue">
+                                    <select class="select2" multiple="multiple" data-placeholder="Select a State"
+                                        style="width: 100%;" name="kategori" required>
+                                        <option>Pilih Kategori</option>
+                                        @foreach ($list_kategori as $kategori)
+                                            <option value="{{ $kategori }}">{{ $kategori }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
                             </div>
                         </div>
                         <div class="col-12">
                             <div class="form-group">
-                                <label for="address">Alamat</label>
-                                <textarea type="text" class="form-control" id="address" name="address"></textarea>
+                                <label for="namaLokasi">Nama Lokasi Kegiatan</label>
+                                <input type="text" class="form-control" id="namaLokasi" name="nama_lokasi"
+                                    required />
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="form-group">
+                                <label for="koordinatLokasi">Koordinat Lokasi Kegiatan</label>
+                                <input type="text" class="form-control" id="koordinatLokasi" name="koordinat_lokasi"
+                                    required />
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="form-group">
+                                <label for="fotoLokasi">Foto Lokasi Kegiatan</label>
+                                <input type="file" class="form-control-file" id="fotoLokasi" name="koordinat_lokasi"
+                                    required />
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="form-group">
+                                <label for="infoBisnis">Informasi Terkait Proses Bisnis</label>
+                                <input type="text" class="form-control" id="infoBisnis" name="informasi_bisnis"
+                                    required />
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="form-group">
+                                <label for="atensiKomoditas">Atensi Komoditas</label>
+                                <input type="text" class="form-control" id="atensiKomoditas" name="atensi_komoditas"
+                                    required />
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="form-group">
+                                <label for="riwayatPenindakan">Riwayat Penindakan oleh Bidang yang
+                                    Mengawasi/Melayani</label>
+                                <input type="text" class="form-control" id="riwayatPenindakan"
+                                    name="riwayat_penindakan" required />
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="form-group">
+                                <label for="riwayatPelanggaran">Riwayat Terjadinya Pelanggaran Integritas oleh Pegawai
+                                    DJBC</label>
+                                <input type="text" class="form-control" id="riwayatPelanggaran"
+                                    name="riwayat_pelanggaran" required />
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="form-group">
+                                <label for="tingkatPelanggaran">Tingkat Pelanggaran Integritas yang Terjadi</label>
+                                <input type="text" class="form-control" id="tingkatPelanggaran"
+                                    name="tingkat_pelanggaran" required />
                             </div>
                         </div>
                     </div>
-
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">

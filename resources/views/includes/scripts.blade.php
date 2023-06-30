@@ -8,6 +8,8 @@
 </script>
 <!-- Bootstrap 4 -->
 <script src="{{ url('/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+<!-- Select2 -->
+<script src="{{ url('/plugins/select2/js/select2.full.min.js') }}"></script>
 <!-- ChartJS -->
 <script src="{{ url('/plugins/chart.js/Chart.min.js') }}"></script>
 <!-- Sparkline -->
@@ -67,5 +69,13 @@
             "autoWidth": false,
             "responsive": true,
         });
+
+        //Initialize Select2 Elements
+        $('.select2').select2()
+
+        //Initialize Select2 Elements
+        $('.select2bs4').select2({
+            theme: 'bootstrap4'
+        })
     });
 </script>
