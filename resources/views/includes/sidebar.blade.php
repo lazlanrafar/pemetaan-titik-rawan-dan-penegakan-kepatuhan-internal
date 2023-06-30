@@ -19,9 +19,9 @@
                 </li>
                 <li class="nav-header">Main</li>
                 <li class="nav-item">
-                    <a href="/laporan" class="nav-link {{ Request::is('laporan') ? 'active' : '' }}">
+                    <a href="/data-kerawanan" class="nav-link {{ Request::is('data-kerawanan') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-book"></i>
-                        <p>Laporan</p>
+                        <p>Data Kerawanan</p>
                     </a>
                 </li>
                 <li class="nav-header">Setup</li>

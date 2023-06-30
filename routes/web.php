@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Auth\LoginController;
 
+use App\Http\Controllers\DataKerawananController;
+
 use App\Http\Controllers\PegawaiController;
 use App\Http\Controllers\UserController;
 
@@ -26,6 +28,8 @@ Route::post('/logout', [LoginController::class, 'logout']);
 Route::get('/', function () {
     return view('pages.dashboard.index');
 })->middleware('auth');
+
+Route::resource('/data-kerawanan', DataKerawananController::class)->middleware('auth');
 
 Route::resource('/pegawai', PegawaiController::class)->middleware('auth');
 Route::resource('/user', UserController::class)->middleware('auth');
