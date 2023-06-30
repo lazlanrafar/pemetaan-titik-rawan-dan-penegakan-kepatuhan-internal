@@ -24,6 +24,11 @@ class PegawaiController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'nip' => 'unique:pegawais',
+            'email' => 'unique:pegawais'
+        ]);
+
         $data = $request->all();
         Pegawai::create($data);
 
@@ -47,6 +52,9 @@ class PegawaiController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $item = Pegawai::findOrFail($id);
+        $item->delete();
+
+        return redirect()->route('pegawai.index')->with('success', 'Data berhasil dihapus');
     }
 }
