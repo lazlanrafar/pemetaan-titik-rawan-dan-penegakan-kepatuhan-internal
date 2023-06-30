@@ -2,11 +2,11 @@
 <div class="modal fade" id="formCreate" tabindex="-1" role="dialog" aria-labelledby="formCreateLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
-            <form action="{{ route('user.store') }}" method="POST">
+            <form action="{{ route('pegawai.store') }}" method="POST">
                 @csrf
                 <div class="modal-header">
                     <h5 class="modal-title" id="formCreateLabel">
-                        Create User
+                        Create Pegawai
                     </h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
@@ -33,13 +33,6 @@
                                 <label for="email-address">Email address</label>
                                 <input type="email" class="form-control" id="email-address" placeholder="Enter email"
                                     name="email" required />
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="password">Password</label>
-                                <input type="password" class="form-control" id="password" placeholder="Password"
-                                    name="password" required />
                             </div>
                         </div>
                         <div class="col-md-6">
