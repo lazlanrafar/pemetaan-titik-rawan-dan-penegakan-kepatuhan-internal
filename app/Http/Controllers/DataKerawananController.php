@@ -26,6 +26,11 @@ class DataKerawananController extends Controller
 
         $items = Kerawanan::all();
 
+        // encode kategori
+        foreach ($items as $item) {
+            $item->kategori = json_decode($item->kategori);
+        }
+
         return view('pages.data-kerawanan.index', [
             "list_kategori" => $list_kategori,
             "items" => $items

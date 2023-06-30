@@ -27,11 +27,12 @@
                                 <thead>
                                     <tr>
                                         <th>No</th>
-                                        <th>NIP</th>
-                                        <th>Nama</th>
-                                        <th>Email</th>
-                                        <th>Phone</th>
-                                        <th>Alamat</th>
+                                        <th>Foto Lokasi</th>
+                                        <th>Kategori</th>
+                                        <th>Nama Lokasi</th>
+                                        <th>Informasi Bisnis</th>
+                                        <th>Atensi Komoditas</th>
+                                        <th>Koordinat Lokasi</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -40,11 +41,26 @@
                                     @foreach ($items as $item)
                                         <tr>
                                             <td>{{ $i }}</td>
-                                            <td>{{ $item->nip }}</td>
-                                            <td>{{ $item->name }}</td>
-                                            <td>{{ $item->email }}</td>
-                                            <td>{{ $item->phone }}</td>
-                                            <td>{{ $item->address }}</td>
+                                            <td>
+                                                <img src="{{ Storage::url($item->foto_lokasi) }}" alt="Foto Lokasi"
+                                                    width="100px" height="100px" />
+                                            </td>
+                                            <td>
+                                                <ul>
+                                                    @foreach ($item->kategori as $kategori)
+                                                        <li>{{ $kategori }}</li>
+                                                    @endforeach
+                                                </ul>
+                                            </td>
+                                            <td>{{ $item->nama_lokasi }}</td>
+                                            <td>{{ $item->informasi_bisnis }}</td>
+                                            <td>{{ $item->atensi_komoditas }}</td>
+                                            <td>
+                                                <a href="https://www.google.com/maps/search/?api=1&query={{ $item->koordinat_lokasi }}"
+                                                    target="_blank">
+                                                    {{ $item->koordinat_lokasi }}
+                                                </a>
+                                            </td>
                                             <td>
                                                 <form id="formDelete{{ $item->id }}"
                                                     action="{{ route('data-kerawanan.destroy', $item->id) }}" method="POST"
