@@ -11,19 +11,19 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('pelaksanaan_pengawasan_tugas', function (Blueprint $table) {
+        Schema::create('pelaksanaan_tugas', function (Blueprint $table) {
             $table->id();
-            $table->string('nama_penginput');
-            $table->string('nama_pelaksana');
-            $table->string('tanggal');
-            $table->string('jenis_waskat');
+            $table->integer('id_petugas');
+            $table->json('nama_pelaksana');
+            $table->date('tanggal');
+            $table->json('jenis_waskat');
             $table->string('tempat');
             $table->date('tanggal_periode');
-            $table->string('lokasi_1')->nullable();
-            $table->string('lokasi_2')->nullable();
-            $table->string('lokasi_3')->nullable();
-            $table->string('lokasi_4')->nullable();
-            $table->string('hasil');
+            $table->string('lokasi_pelaksanaan_1')->nullable();
+            $table->string('lokasi_pelaksanaan_2')->nullable();
+            $table->string('lokasi_pelaksanaan_3')->nullable();
+            $table->string('lokasi_pelaksanaan_4')->nullable();
+            $table->string('hasil_pelaksanaan');
             $table->string('kesimpulan');
             $table->string('nama_pelanggar');
             $table->string('foto_pelanggar');
@@ -45,6 +45,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('pelaksanaan_pengawasan_tugas');
+        Schema::dropIfExists('pelaksanaan_tugas');
     }
 };

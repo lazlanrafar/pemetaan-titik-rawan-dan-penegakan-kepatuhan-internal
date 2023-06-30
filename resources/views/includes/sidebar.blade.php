@@ -24,6 +24,13 @@
                         <p>Data Kerawanan</p>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="/pengawasan-pelaksanaan-tugas"
+                        class="nav-link {{ Request::is('pengawasan-pelaksanaan-tugas') ? 'active' : '' }}">
+                        <i class="nav-icon fa  fa-exclamation-triangle"></i>
+                        <p>Pengawasan Tugas</p>
+                    </a>
+                </li>
                 <li class="nav-header">Setup</li>
                 <li class="nav-item">
                     <a href="/pegawai" class="nav-link {{ Request::is('pegawai') ? 'active' : '' }}">
