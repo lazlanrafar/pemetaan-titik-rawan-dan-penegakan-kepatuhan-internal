@@ -62,9 +62,14 @@
                                                 </a>
                                             </td>
                                             <td>
+                                                <a type="button" class="btn btn-warning" data-toggle="modal"
+                                                    data-target="#formUpdate{{ $item->id }}">
+                                                    <i class="fa fa-edit"></i>
+                                                </a>
+                                                @include('pages.data-kerawanan.update')
                                                 <form id="formDelete{{ $item->id }}"
-                                                    action="{{ route('data-kerawanan.destroy', $item->id) }}" method="POST"
-                                                    class="d-inline">
+                                                    action="{{ route('data-kerawanan.destroy', $item->id) }}"
+                                                    method="POST" class="d-inline">
                                                     @csrf
                                                     @method('delete')
                                                     <a type="button" class="btn btn-danger"
@@ -90,11 +95,7 @@
                                                         })
                                                     }
                                                 </script>
-                                                <a type="button" class="btn btn-warning" data-toggle="modal"
-                                                    data-target="#formUpdate{{ $item->id }}">
-                                                    <i class="fa fa-edit"></i>
-                                                </a>
-                                                @include('pages.data-kerawanan.update')
+
 
                                             </td>
                                         </tr>

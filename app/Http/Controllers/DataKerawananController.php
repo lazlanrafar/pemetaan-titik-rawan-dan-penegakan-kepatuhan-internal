@@ -98,6 +98,9 @@ class DataKerawananController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $item = Kerawanan::findOrFail($id);
+        $item->delete();
+
+        return redirect()->route('data-kerawanan.index')->with('success', 'Data berhasil dihapus');
     }
 }
