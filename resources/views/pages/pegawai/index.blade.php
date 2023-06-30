@@ -30,7 +30,7 @@
                                         <th>NIP</th>
                                         <th>Nama</th>
                                         <th>Email</th>
-                                        <th>Role</th>
+                                        <th>Phone</th>
                                         <th>Alamat</th>
                                         <th>Action</th>
                                     </tr>
@@ -43,7 +43,7 @@
                                             <td>{{ $item->nip }}</td>
                                             <td>{{ $item->name }}</td>
                                             <td>{{ $item->email }}</td>
-                                            <td>{{ $item->role }}</td>
+                                            <td>{{ $item->phone }}</td>
                                             <td>{{ $item->address }}</td>
                                             <td>
                                                 <form id="formDelete{{ $item->id }}"
