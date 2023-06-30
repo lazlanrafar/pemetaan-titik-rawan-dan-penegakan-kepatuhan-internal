@@ -3,12 +3,12 @@
     aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
-            <form action="{{ route('pegawai.update', $item->id) }}" method="POST">
+            <form action="{{ route('data-kerawanan.update', $item->id) }}" method="POST">
                 @csrf
                 @method('PUT')
                 <div class="modal-header">
                     <h5 class="modal-title" id="formUpdateLabel">
-                        Update Pegawai - {{ $item->name }}
+                        Update Data Kerawanan
                     </h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
@@ -16,43 +16,83 @@
                 </div>
                 <div class="modal-body">
                     <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-12">
                             <div class="form-group">
-                                <label for="namalengkap">Nama Lengkap</label>
-                                <input type="text" class="form-control" id="namalengkap"
-                                    placeholder="Enter Nama Lengkap" name="name" value="{{ $item->name }}"
-                                    required />
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="nip">NIP</label>
-                                <input type="text" class="form-control" id="nip" placeholder="Enter NIP"
-                                    name="nip" value="{{ $item->nip }}" required />
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="email-address">Email address</label>
-                                <input type="email" class="form-control" id="email-address" placeholder="Enter email"
-                                    name="email" value="{{ $item->email }}" required />
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="phone">Phone</label>
-                                <input type="text" class="form-control" id="phone" placeholder="Phone"
-                                    name="phone" value="{{ $item->phone }}" />
+                                <label>Kategori*</label>
+                                <div class="select2-blue">
+                                    <select class="select2" multiple="multiple" data-placeholder="Select a State"
+                                        style="width: 100%;" name="kategori[]" required>
+                                        <option>Pilih Kategori</option>
+                                        @foreach ($list_kategori as $kategori)
+                                            <option value="{{ $kategori }}"
+                                                @if (in_array($kategori, $item->kategori)) selected @endif>{{ $kategori }}
+                                            </option>
+                                        @endforeach
+                                    </select>
+
+                                </div>
                             </div>
                         </div>
                         <div class="col-12">
                             <div class="form-group">
-                                <label for="address">Alamat</label>
-                                <textarea type="text" class="form-control" id="address" name="address">{{ $item->address }}</textarea>
+                                <label for="namaLokasi">Nama Lokasi Kegiatan</label>
+                                <input type="text" class="form-control" id="namaLokasi" name="nama_lokasi"
+                                    value="{{ $item->nama_lokasi }}" required />
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="form-group">
+                                <label for="koordinatLokasi">Koordinat Lokasi Kegiatan</label>
+                                <input type="text" class="form-control" id="koordinatLokasi" name="koordinat_lokasi"
+                                    value="{{ $item->koordinat_lokasi }}" required />
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="form-group">
+                                <label for="fotoLokasi">Foto Lokasi Kegiatan</label>
+                                <span>- Upload foto untuk update</span>
+                                <input type="file" class="form-control-file" id="fotoLokasi" name="foto_lokasi"
+                                    required />
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="form-group">
+                                <label for="infoBisnis">Informasi Terkait Proses Bisnis</label>
+                                <input type="text" class="form-control" id="infoBisnis" name="informasi_bisnis"
+                                    value="{{ $item->informasi_bisnis }}" required />
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="form-group">
+                                <label for="atensiKomoditas">Atensi Komoditas</label>
+                                <input type="text" class="form-control" id="atensiKomoditas" name="atensi_komoditas"
+                                    value="{{ $item->atensi_komoditas }}" required />
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="form-group">
+                                <label for="riwayatPenindakan">Riwayat Penindakan oleh Bidang yang
+                                    Mengawasi/Melayani</label>
+                                <input type="text" class="form-control" id="riwayatPenindakan"
+                                    value="{{ $item->riwayat_penindakan }}" name="riwayat_penindakan" required />
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="form-group">
+                                <label for="riwayatPelanggaran">Riwayat Terjadinya Pelanggaran Integritas oleh Pegawai
+                                    DJBC</label>
+                                <input type="text" class="form-control" id="riwayatPelanggaran"
+                                    value="{{ $item->riwayat_pelanggaran }}" name="riwayat_pelanggaran" required />
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="form-group">
+                                <label for="tingkatPelanggaran">Tingkat Pelanggaran Integritas yang Terjadi</label>
+                                <input type="text" class="form-control" id="tingkatPelanggaran"
+                                    value="{{ $item->tingkat_pelanggaran }}" name="tingkat_pelanggaran" required />
                             </div>
                         </div>
                     </div>
-
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">
