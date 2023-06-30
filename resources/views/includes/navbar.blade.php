@@ -14,10 +14,10 @@
                     class="user-image img-circle" alt="User Image">
                 <span class="hidden-xs text-white">{{ request()->session()->get('user')['name'] }}</span>
             </a>
-            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-                <a href="/changepass" class="dropdown-item">
+            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right border-0">
+                {{-- <a href="/changepass" class="dropdown-item">
                     <i class="fas fa-lock mr-2"></i> Ganti Password
-                </a>
+                </a> --}}
                 <div class="dropdown-divider"></div>
                 <form action="/logout" method="POST">
                     @csrf
