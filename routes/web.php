@@ -7,6 +7,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\DashboardController;
 
 use App\Http\Controllers\DataKerawananController;
+use App\Http\Controllers\PengawasanPelaksanaanTugasController;
 
 use App\Http\Controllers\PegawaiController;
 use App\Http\Controllers\UserController;
@@ -30,6 +31,7 @@ Route::post('/logout', [LoginController::class, 'logout']);
 Route::resource('/', DashboardController::class)->middleware('auth');
 
 Route::resource('/data-kerawanan', DataKerawananController::class)->middleware('auth');
+Route::resource('/pengawasan-pelaksanaan-tugas', PengawasanPelaksanaanTugasController::class)->middleware('auth');
 
 Route::resource('/pegawai', PegawaiController::class)->middleware('auth');
 Route::resource('/user', UserController::class)->middleware('auth');
