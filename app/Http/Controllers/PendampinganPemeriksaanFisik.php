@@ -15,8 +15,17 @@ class PendampinganPemeriksaanFisik extends Controller
     {
         $items = PelaksanaanTugas::orderBy('created_at', 'desc')->get();
 
+        $list_boolean = ['Ada', 'Tidak Ada'];
+        $list_kondisi_tempat = ['Basah', 'Kering'];
+        $list_kondisi_segel = ['Segel Baik', 'Segel Rusak', 'Tanpa Segel'];
+        $list_tingkat_pemeriksaan_fisik = ['30%', 'Mendalam'];
+
         return view('pages.pendampingan-pemeriksaan-fisik.index',[
-            "items" => $items
+            "items" => $items,
+            "list_boolean" => $list_boolean,
+            "list_kondisi_tempat" => $list_kondisi_tempat,
+            "list_kondisi_segel" => $list_kondisi_segel,
+            "list_tingkat_pemeriksaan_fisik" => $list_tingkat_pemeriksaan_fisik,
         ]);
     }
 
