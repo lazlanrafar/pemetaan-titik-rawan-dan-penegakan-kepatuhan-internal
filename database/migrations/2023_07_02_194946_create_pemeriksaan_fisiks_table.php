@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('pendampingan_pemeriksaan_fisiks', function (Blueprint $table) {
+        Schema::create('pemeriksaan_fisiks', function (Blueprint $table) {
             $table->id();
             $table->string('nama_petugas');
             $table->string('lokasi');
@@ -21,12 +21,12 @@ return new class extends Migration
             $table->string('tanggal_dokumen')->nullable();
             $table->string('jumlah_kemasan')->nullable();
             $table->string('nama_pemeriksa')->nullable();
-            $table->string('terdapat_petugas_p2')->default(false);
+            $table->string('terdapat_petugas_p2')->nullable();
             $table->string('nama_petugas_p2')->nullable();
             $table->string('nama_kuasa_perusahaan')->nullable();
             $table->dateTime('waktu_mulai')->nullable();
             $table->dateTime('waktu_selesai')->nullable();
-            $table->string('pemberitahuan_kesiapan_barang')->default(false);
+            $table->string('pemberitahuan_kesiapan_barang')->nullable();
             $table->string('kondisi_tempat')->nullable();
             $table->string('jumlah_kemasan_diperiksa')->nullable();
             $table->string('kondisi_segel')->nullable();
@@ -58,6 +58,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('pendampingan_pemeriksaan_fisiks');
+        Schema::dropIfExists('pemeriksaan_fisiks');
     }
 };
