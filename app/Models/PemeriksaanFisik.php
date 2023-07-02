@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\User;
 
 class PemeriksaanFisik extends Model
 {
@@ -52,4 +53,8 @@ class PemeriksaanFisik extends Model
         'bukti_foto_5',
         'bukti_foto_6',
     ];
+
+    function petugas(){
+        return $this->belongsTo(User::class, 'id_petugas');
+    }
 }

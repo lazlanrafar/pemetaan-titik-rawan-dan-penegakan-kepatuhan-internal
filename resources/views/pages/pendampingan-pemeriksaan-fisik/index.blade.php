@@ -22,70 +22,25 @@
                             <a type="button" class="btn btn-primary" data-toggle="modal" data-target="#formCreate"><i
                                     class="fa fa-plus"></i> Tambah</a>
                             @include('pages.pendampingan-pemeriksaan-fisik.create')
-
-                            <table id="defaultTable" class="table table-bordered table-striped">
-                                <thead>
-                                    <tr>
-                                        <th>No</th>
-                                        <th>NIP</th>
-                                        <th>Nama</th>
-                                        <th>Email</th>
-                                        <th>Phone</th>
-                                        <th>Alamat</th>
-                                        <th>Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php $i = 1; ?>
-                                    @foreach ($items as $item)
-                                        <tr>
-                                            <td>{{ $i }}</td>
-                                            <td>{{ $item->nip }}</td>
-                                            <td>{{ $item->name }}</td>
-                                            <td>{{ $item->email }}</td>
-                                            <td>{{ $item->phone }}</td>
-                                            <td>{{ $item->address }}</td>
-                                            <td style="min-width:150px">
-                                                <form id="formDelete{{ $item->id }}"
-                                                    action="{{ route('pendampingan-pemeriksaan-fisik.destroy', $item->id) }}"
-                                                    method="POST" class="d-inline">
-                                                    @csrf
-                                                    @method('delete')
-                                                    <a type="button" class="btn btn-danger"
-                                                        onclick="handleDelete({{ $item->id }})">
-                                                        <i class="fa fa-trash"></i>
-                                                    </a>
-                                                </form>
-
-                                                <script>
-                                                    function handleDelete(id) {
-                                                        Swal.fire({
-                                                            title: 'Apakah kamu yakin?',
-                                                            text: "kamu akan menghapus data ini!",
-                                                            icon: 'warning',
-                                                            showCancelButton: true,
-                                                            confirmButtonColor: '#3085d6',
-                                                            cancelButtonColor: '#d33',
-                                                            confirmButtonText: 'Ya, hapus!'
-                                                        }).then((result) => {
-                                                            if (result.isConfirmed) {
-                                                                document.getElementById('formDelete' + id).submit();
-                                                            }
-                                                        })
-                                                    }
-                                                </script>
-                                                <a type="button" class="btn btn-warning" data-toggle="modal"
-                                                    data-target="#formUpdate{{ $item->id }}">
-                                                    <i class="fa fa-edit"></i>
-                                                </a>
-                                                @include('pages.pendampingan-pemeriksaan-fisik.update')
-
-                                            </td>
-                                        </tr>
-                                        <?php $i++; ?>
-                                    @endforeach
-                                </tbody>
-                            </table>
+                            <br />
+                            <br />
+                            <div class="row">
+                                @foreach ($items as $item)
+                                    <div class="col-md-3">
+                                        <div class="card" style="width: 18rem;">
+                                            <img class="card-img-top" src="{{ Storage::url($item->bukti_foto_1) }}"
+                                                alt="Card image cap">
+                                            <div class="card-body">
+                                                <h5 class="card-title">Card title</h5>
+                                                <p class="card-text">Some quick example text to build on the card title and
+                                                    make
+                                                    up the bulk of the card's content.</p>
+                                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endforeach
+                            </div>
                         </div>
                     </div>
                 </div>

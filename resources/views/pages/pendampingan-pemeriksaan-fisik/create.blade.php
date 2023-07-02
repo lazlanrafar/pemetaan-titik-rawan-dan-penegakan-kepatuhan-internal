@@ -259,35 +259,35 @@
                             <div class="form-group">
                                 <label for="bukti_foto_2">Bukti Foto 2</label>
                                 <input type="file" class="form-control-file" id="bukti_foto_2"
-                                    name="bukti_foto_2" required />
+                                    name="bukti_foto_2" />
                             </div>
                         </div>
                         <div class="col-12">
                             <div class="form-group">
                                 <label for="bukti_foto_3">Bukti Foto 3</label>
                                 <input type="file" class="form-control-file" id="bukti_foto_3"
-                                    name="bukti_foto_3" required />
+                                    name="bukti_foto_3" />
                             </div>
                         </div>
                         <div class="col-12">
                             <div class="form-group">
                                 <label for="bukti_foto_4">Bukti Foto 4</label>
                                 <input type="file" class="form-control-file" id="bukti_foto_4"
-                                    name="bukti_foto_4" required />
+                                    name="bukti_foto_4" />
                             </div>
                         </div>
                         <div class="col-12">
                             <div class="form-group">
                                 <label for="bukti_foto_5">Bukti Foto 5</label>
                                 <input type="file" class="form-control-file" id="bukti_foto_5"
-                                    name="bukti_foto_5" required />
+                                    name="bukti_foto_5" />
                             </div>
                         </div>
                         <div class="col-12">
                             <div class="form-group">
                                 <label for="bukti_foto_6">Bukti Foto 6</label>
                                 <input type="file" class="form-control-file" id="bukti_foto_6"
-                                    name="bukti_foto_6" required />
+                                    name="bukti_foto_6" />
                             </div>
                         </div>
                     </div>
