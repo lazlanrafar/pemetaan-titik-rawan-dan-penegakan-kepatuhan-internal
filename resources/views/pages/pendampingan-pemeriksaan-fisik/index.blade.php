@@ -19,9 +19,24 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-body">
-                            <a type="button" class="btn btn-primary" data-toggle="modal" data-target="#formCreate"><i
-                                    class="fa fa-plus"></i> Tambah</a>
-                            @include('pages.pendampingan-pemeriksaan-fisik.create')
+                            <div class="d-sm-flex justify-content-between">
+                                <div class="mb-3 mb-sm-0">
+                                    <a type="button" class="btn btn-primary" data-toggle="modal"
+                                        data-target="#formCreate"><i class="fa fa-plus"></i> Tambah</a>
+                                    @include('pages.pendampingan-pemeriksaan-fisik.create')
+                                </div>
+                                <form action="/pendampingan-pemeriksaan-fisik">
+                                    <div class="input-group">
+                                        <input type="search" class="form-control form-control" name="search"
+                                            placeholder="Search..." value="{{ $search }}">
+                                        <div class="input-group-append">
+                                            <button type="submit" class="btn btn btn-default">
+                                                <i class="fa fa-search"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
                             <br />
                             <br />
                             <div class="row text-poppins text-sm">
@@ -49,6 +64,7 @@
                                                             data-target="#formUpdate{{ $item->id }}">
                                                             <i class="fa fa-edit"></i>
                                                         </a>
+                                                        @include('pages.pendampingan-pemeriksaan-fisik.update')
 
                                                         <form id="formDelete{{ $item->id }}"
                                                             action="{{ route('pegawai.destroy', $item->id) }}"

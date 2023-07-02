@@ -13,7 +13,8 @@ class PendampinganPemeriksaanFisik extends Controller
      */
     public function index()
     {
-        $items = PemeriksaanFisik::orderBy('created_at', 'desc')->get();
+        $search = request()->query('search');
+        $items = PemeriksaanFisik::orderBy('created_at', 'desc')->where('lokasi', 'LIKE', "%{$search}%")->get();
 
         $list_boolean = ['Ada', 'Tidak Ada'];
         $list_kondisi_tempat = ['Basah', 'Kering'];
@@ -21,6 +22,7 @@ class PendampinganPemeriksaanFisik extends Controller
         $list_tingkat_pemeriksaan_fisik = ['30%', 'Mendalam'];
 
         return view('pages.pendampingan-pemeriksaan-fisik.index',[
+            "search" => $search,
             "items" => $items,
             "list_boolean" => $list_boolean,
             "list_kondisi_tempat" => $list_kondisi_tempat,
