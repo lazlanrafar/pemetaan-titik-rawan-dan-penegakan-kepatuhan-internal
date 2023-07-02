@@ -191,6 +191,9 @@ class PengawasanPelaksanaanTugasController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $item = PelaksanaanTugas::findOrFail($id);
+        $item->delete();
+
+        return redirect()->route('pengawasan-pelaksanaan-tugas.index')->with('success', 'Data berhasil dihapus');
     }
 }
