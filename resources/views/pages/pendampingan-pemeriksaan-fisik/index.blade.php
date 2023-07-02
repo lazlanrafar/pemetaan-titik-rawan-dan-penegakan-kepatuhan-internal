@@ -4,7 +4,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Data Kerawanan</h1>
+                    <h1>Pendampingan Pemeriksaan Fisik</h1>
                 </div>
             </div>
         </div>
@@ -21,43 +21,17 @@
                         <div class="card-body">
                             <a type="button" class="btn btn-primary" data-toggle="modal" data-target="#formCreate"><i
                                     class="fa fa-plus"></i> Tambah</a>
-                            @include('pages.data-kerawanan.create')
-
-                            <hr />
-
-                            <div style="max-width: 400px">
-                                <label>Kategori</label>
-                                <select class="form-control" id="filterCategory" onchange="onChangeFilterCategory()">
-                                    <option {{ $kategori_active === 'All' ? 'selected' : '' }}>All</option>
-                                    @foreach ($list_kategori as $kategori)
-                                        <option value="{{ $kategori }}"
-                                            {{ $kategori_active === $kategori ? 'selected' : '' }}>{{ $kategori }}
-                                        </option>
-                                    @endforeach
-                                </select>
-                            </div>
-
-                            <script>
-                                function onChangeFilterCategory() {
-                                    var value = document.getElementById('filterCategory').value;
-                                    if (value == 'All') {
-                                        window.location.href = "{{ route('data-kerawanan.index') }}";
-                                    } else {
-                                        window.location.href = "{{ route('data-kerawanan.index') }}?kategori=" + value;
-                                    }
-                                }
-                            </script>
+                            @include('pages.pendampingan-pemeriksaan-fisik.create')
 
                             <table id="defaultTable" class="table table-bordered table-striped">
                                 <thead>
                                     <tr>
                                         <th>No</th>
-                                        <th>Foto Lokasi</th>
-                                        <th>Kategori</th>
-                                        <th>Nama Lokasi</th>
-                                        <th>Informasi Bisnis</th>
-                                        <th>Atensi Komoditas</th>
-                                        <th>Koordinat Lokasi</th>
+                                        <th>NIP</th>
+                                        <th>Nama</th>
+                                        <th>Email</th>
+                                        <th>Phone</th>
+                                        <th>Alamat</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -66,34 +40,14 @@
                                     @foreach ($items as $item)
                                         <tr>
                                             <td>{{ $i }}</td>
-                                            <td>
-                                                <img src="{{ Storage::url($item->foto_lokasi) }}" alt="Foto Lokasi"
-                                                    width="100px" height="100px" />
-                                            </td>
-                                            <td>
-                                                <ul>
-                                                    @foreach ($item->kategori as $kategori)
-                                                        <li>{{ $kategori }}</li>
-                                                    @endforeach
-                                                </ul>
-                                            </td>
-                                            <td>{{ $item->nama_lokasi }}</td>
-                                            <td>{{ $item->informasi_bisnis }}</td>
-                                            <td>{{ $item->atensi_komoditas }}</td>
-                                            <td>
-                                                <a href="https://www.google.com/maps/search/?api=1&query={{ $item->koordinat_lokasi }}"
-                                                    target="_blank">
-                                                    {{ $item->koordinat_lokasi }}
-                                                </a>
-                                            </td>
+                                            <td>{{ $item->nip }}</td>
+                                            <td>{{ $item->name }}</td>
+                                            <td>{{ $item->email }}</td>
+                                            <td>{{ $item->phone }}</td>
+                                            <td>{{ $item->address }}</td>
                                             <td style="min-width:150px">
-                                                <a type="button" class="btn btn-warning" data-toggle="modal"
-                                                    data-target="#formUpdate{{ $item->id }}">
-                                                    <i class="fa fa-edit"></i>
-                                                </a>
-                                                @include('pages.data-kerawanan.update')
                                                 <form id="formDelete{{ $item->id }}"
-                                                    action="{{ route('data-kerawanan.destroy', $item->id) }}"
+                                                    action="{{ route('pendampingan-pemeriksaan-fisik.destroy', $item->id) }}"
                                                     method="POST" class="d-inline">
                                                     @csrf
                                                     @method('delete')
@@ -120,7 +74,11 @@
                                                         })
                                                     }
                                                 </script>
-
+                                                <a type="button" class="btn btn-warning" data-toggle="modal"
+                                                    data-target="#formUpdate{{ $item->id }}">
+                                                    <i class="fa fa-edit"></i>
+                                                </a>
+                                                @include('pages.pendampingan-pemeriksaan-fisik.update')
 
                                             </td>
                                         </tr>

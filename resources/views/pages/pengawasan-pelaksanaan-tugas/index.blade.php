@@ -51,7 +51,7 @@
                                             </td>
                                             <td>{{ $item->hasil_pelaksanaan }}</td>
                                             <td>{{ $item->kesimpulan }}</td>
-                                            <td style="min-width:180px">
+                                            <td style="min-width:150px">
                                                 <a href="{{ route('pengawasan-pelaksanaan-tugas.show', $item->id) }}"
                                                     class="btn btn-info">
                                                     <i class="fa fa-eye"></i>

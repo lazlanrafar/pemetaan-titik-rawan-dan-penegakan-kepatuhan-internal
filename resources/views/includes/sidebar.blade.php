@@ -31,6 +31,13 @@
                         <p>Pengawasan Tugas</p>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="/pendampingan-pemeriksaan-fisik"
+                        class="nav-link {{ Request::is('pendampingan-pemeriksaan-fisik') ? 'active' : '' }}">
+                        <i class="nav-icon fa fa-medkit"></i>
+                        <p>Pemeriksaan Fisik</p>
+                    </a>
+                </li>
                 <li class="nav-header">Setup</li>
                 <li class="nav-item">
                     <a href="/pegawai" class="nav-link {{ Request::is('pegawai') ? 'active' : '' }}">
