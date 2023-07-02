@@ -2,7 +2,8 @@
 <div class="modal fade" id="formCreate" tabindex="-1" role="dialog" aria-labelledby="formCreateLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
-            <form action="{{ route('pengawasan-pelaksanaan-tugas.store') }}" method="POST">
+            <form action="{{ route('pengawasan-pelaksanaan-tugas.store') }}" method="POST"
+                enctype="multipart/form-data">
                 @csrf
                 <input type="hidden" name="id_petugas" value="{{ request()->session()->get('user')['id'] }}">
                 <div class="modal-header">

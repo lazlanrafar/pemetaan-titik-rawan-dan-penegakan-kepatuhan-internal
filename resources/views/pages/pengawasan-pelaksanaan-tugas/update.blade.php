@@ -3,7 +3,8 @@
     aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
-            <form action="{{ route('pengawasan-pelaksanaan-tugas.update', $item->id) }}" method="POST">
+            <form action="{{ route('pengawasan-pelaksanaan-tugas.update', $item->id) }}" method="POST"
+                enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
                 <div class="modal-header">
