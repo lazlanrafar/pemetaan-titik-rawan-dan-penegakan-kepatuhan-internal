@@ -111,7 +111,14 @@ class PengawasanPelaksanaanTugasController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $item = PelaksanaanTugas::findOrFail($id);
+        $item->nama_pelaksana = json_decode($item->nama_pelaksana);
+        $item->jenis_waskat = json_decode($item->jenis_waskat);
+        $item->tanggal_periode = date('Y-m', strtotime($item->tanggal_periode));
+
+        return view('pages.pengawasan-pelaksanaan-tugas.detail', [
+            "item" => $item
+        ]);
     }
 
     /**

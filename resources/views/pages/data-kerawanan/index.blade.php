@@ -86,7 +86,7 @@
                                                     {{ $item->koordinat_lokasi }}
                                                 </a>
                                             </td>
-                                            <td>
+                                            <td style="min-width:180px">
                                                 <a type="button" class="btn btn-warning" data-toggle="modal"
                                                     data-target="#formUpdate{{ $item->id }}">
                                                     <i class="fa fa-edit"></i>

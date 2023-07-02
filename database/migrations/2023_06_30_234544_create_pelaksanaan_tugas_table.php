@@ -23,14 +23,14 @@ return new class extends Migration
             $table->string('lokasi_pelaksanaan_2')->nullable();
             $table->string('lokasi_pelaksanaan_3')->nullable();
             $table->string('lokasi_pelaksanaan_4')->nullable();
-            $table->string('hasil_pelaksanaan');
-            $table->string('kesimpulan')->nullable();
+            $table->longText('hasil_pelaksanaan');
+            $table->longText('kesimpulan')->nullable();
             $table->string('nama_pelanggar')->nullable();
             $table->string('foto_pelanggar')->nullable();
             $table->string('bidang_pelanggar')->nullable();
-            $table->string('pelanggaran')->nullable();
+            $table->longText('pelanggaran')->nullable();
             $table->string('dokumantasi_pelanggaran')->nullable();
-            $table->string('informasi_tambahan')->nullable();
+            $table->longText('informasi_tambahan')->nullable();
             $table->string('dokumentasi_1')->nullable();
             $table->string('dokumentasi_2')->nullable();
             $table->string('dokumentasi_3')->nullable();
