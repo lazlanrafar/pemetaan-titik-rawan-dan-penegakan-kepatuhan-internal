@@ -27,11 +27,11 @@
                                 <thead>
                                     <tr>
                                         <th>No</th>
-                                        <th>NIP</th>
-                                        <th>Nama</th>
-                                        <th>Email</th>
-                                        <th>Phone</th>
-                                        <th>Alamat</th>
+                                        <th>Tanggal</th>
+                                        <th>Petugas</th>
+                                        <th>Jenis Waskat</th>
+                                        <th>Hasil Pelaksanaan</th>
+                                        <th>Keimpulan</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -40,11 +40,17 @@
                                     @foreach ($items as $item)
                                         <tr>
                                             <td>{{ $i }}</td>
-                                            <td>{{ $item->nip }}</td>
-                                            <td>{{ $item->name }}</td>
-                                            <td>{{ $item->email }}</td>
-                                            <td>{{ $item->phone }}</td>
-                                            <td>{{ $item->address }}</td>
+                                            <td>{{ $item->tanggal }}</td>
+                                            <td>{{ $item->petugas->name }}</td>
+                                            <td>
+                                                <ul>
+                                                    @foreach ($item->jenis_waskat as $jenis)
+                                                        <li>{{ $jenis }}</li>
+                                                    @endforeach
+                                                </ul>
+                                            </td>
+                                            <td>{{ $item->hasil_pelaksanaan }}</td>
+                                            <td>{{ $item->kesimpulan }}</td>
                                             <td>
                                                 <form id="formDelete{{ $item->id }}"
                                                     action="{{ route('pengawasan-pelaksanaan-tugas.destroy', $item->id) }}"

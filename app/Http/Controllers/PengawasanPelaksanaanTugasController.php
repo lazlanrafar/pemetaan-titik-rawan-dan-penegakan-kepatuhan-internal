@@ -21,7 +21,11 @@ class PengawasanPelaksanaanTugasController extends Controller
             'One day With KI (ODWKI)'
         ];
 
-        $items = PelaksanaanTugas::all();
+        $items = PelaksanaanTugas::orderBy('created_at', 'desc')->get();
+        foreach ($items as $item) {
+            $item->nama_pelaksana = json_decode($item->nama_pelaksana);
+            $item->jenis_waskat = json_decode($item->jenis_waskat);
+        }
 
         return view('pages.pengawasan-pelaksanaan-tugas.index',[
             "items" => $items,

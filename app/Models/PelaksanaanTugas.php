@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\User;
 
 class PelaksanaanTugas extends Model
 {
@@ -39,4 +40,8 @@ class PelaksanaanTugas extends Model
         'dokumentasi_4',
         'dokumentasi_5',
     ];
+
+   function petugas(){
+       return $this->belongsTo(User::class, 'id_petugas');
+   }
 }
