@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('pemeriksaan_fisiks', function (Blueprint $table) {
             $table->id();
-            $table->string('nama_petugas');
+            $table->integer('id_petugas');
             $table->string('lokasi');
             $table->date('tanggal');
             $table->string('nama_perusahaan')->nullable();
