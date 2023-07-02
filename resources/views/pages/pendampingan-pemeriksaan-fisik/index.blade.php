@@ -24,18 +24,63 @@
                             @include('pages.pendampingan-pemeriksaan-fisik.create')
                             <br />
                             <br />
-                            <div class="row">
+                            <div class="row text-poppins text-sm">
                                 @foreach ($items as $item)
-                                    <div class="col-md-3">
-                                        <div class="card" style="width: 18rem;">
+                                    <div class="col-md-6 col-lg-4 mb-3">
+                                        <div class="card" style="max-width: 350px">
+                                            <div class="card-body">
+                                                <p class="card-text font-weight-bold mb-0">{{ $item->tanggal }}</p>
+                                                <p class="card-text text-muted mb-0">{{ $item->petugas->name }}</p>
+                                            </div>
                                             <img class="card-img-top" src="{{ Storage::url($item->bukti_foto_1) }}"
                                                 alt="Card image cap">
                                             <div class="card-body">
-                                                <h5 class="card-title">Card title</h5>
-                                                <p class="card-text">Some quick example text to build on the card title and
-                                                    make
-                                                    up the bulk of the card's content.</p>
-                                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                                                <h5 class="card-title mb-1">{{ Str::limit($item->lokasi, 65, '...') }}</h5>
+                                                {{-- set lokasi when length text more than 100 set to ... --}}
+                                                <p class="card-text text-muted">{{ $item->nomor_dokumen }}</p>
+                                                <p class="card-text">{{ $item->tanggal_dokumen }}</p>
+                                                <div class="d-flex justify-content-between">
+                                                    <a href="#" class="btn btn-info">
+                                                        <div class="fa fa-eye"></div>
+                                                        Detail
+                                                    </a>
+                                                    <div>
+                                                        <a type="button" class="btn btn-warning" data-toggle="modal"
+                                                            data-target="#formUpdate{{ $item->id }}">
+                                                            <i class="fa fa-edit"></i>
+                                                        </a>
+
+                                                        <form id="formDelete{{ $item->id }}"
+                                                            action="{{ route('pegawai.destroy', $item->id) }}"
+                                                            method="POST" class="d-inline">
+                                                            @csrf
+                                                            @method('delete')
+                                                            <a type="button" class="btn btn-danger"
+                                                                onclick="handleDelete({{ $item->id }})">
+                                                                <i class="fa fa-trash"></i>
+                                                            </a>
+                                                        </form>
+
+                                                        <script>
+                                                            function handleDelete(id) {
+                                                                Swal.fire({
+                                                                    title: 'Apakah kamu yakin?',
+                                                                    text: "kamu akan menghapus data ini!",
+                                                                    icon: 'warning',
+                                                                    showCancelButton: true,
+                                                                    confirmButtonColor: '#3085d6',
+                                                                    cancelButtonColor: '#d33',
+                                                                    confirmButtonText: 'Ya, hapus!'
+                                                                }).then((result) => {
+                                                                    if (result.isConfirmed) {
+                                                                        document.getElementById('formDelete' + id).submit();
+                                                                    }
+                                                                })
+                                                            }
+                                                        </script>
+
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
