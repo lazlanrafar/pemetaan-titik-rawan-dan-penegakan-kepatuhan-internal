@@ -147,7 +147,7 @@ class PendampinganPemeriksaanFisik extends Controller
         $item = PemeriksaanFisik::findOrFail($id);
         $item->update($data);
 
-        return redirect()->route('pendampingan-pemeriksaan-fisik.index');
+        return redirect()->route('pendampingan-pemeriksaan-fisik.index')->with('status', 'Data berhasil diubah');
     }
 
     /**
@@ -155,6 +155,9 @@ class PendampinganPemeriksaanFisik extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $item = PemeriksaanFisik::findOrFail($id);
+        $item->delete();
+
+        return redirect()->route('pendampingan-pemeriksaan-fisik.index')->with('status', 'Data berhasil dihapus');
     }
 }

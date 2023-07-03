@@ -67,7 +67,7 @@
                                                         @include('pages.pendampingan-pemeriksaan-fisik.update')
 
                                                         <form id="formDelete{{ $item->id }}"
-                                                            action="{{ route('pegawai.destroy', $item->id) }}"
+                                                            action="{{ route('pendampingan-pemeriksaan-fisik.destroy', $item->id) }}"
                                                             method="POST" class="d-inline">
                                                             @csrf
                                                             @method('delete')
