@@ -95,19 +95,59 @@ class PendampinganPemeriksaanFisik extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
-
-    /**
      * Update the specified resource in storage.
      */
     public function update(Request $request, string $id)
     {
-        //
+        $data = $request->all();
+
+        unset($data['bukti_foto_1']);
+        if ($request->file('bukti_foto_1')) {
+            $data['bukti_foto_1'] = $request->file('bukti_foto_1')->store(
+                'assets/pendampingan-pemeriksaan-fisik',
+                'public'
+            );
+        }
+        unset($data['bukti_foto_2']);
+        if ($request->file('bukti_foto_2')) {
+            $data['bukti_foto_2'] = $request->file('bukti_foto_2')->store(
+                'assets/pendampingan-pemeriksaan-fisik',
+                'public'
+            );
+        }
+        unset($data['bukti_foto_3']);
+        if ($request->file('bukti_foto_3')) {
+            $data['bukti_foto_3'] = $request->file('bukti_foto_3')->store(
+                'assets/pendampingan-pemeriksaan-fisik',
+                'public'
+            );
+        }
+        unset($data['bukti_foto_4']);
+        if ($request->file('bukti_foto_4')) {
+            $data['bukti_foto_4'] = $request->file('bukti_foto_4')->store(
+                'assets/pendampingan-pemeriksaan-fisik',
+                'public'
+            );
+        }
+        unset($data['bukti_foto_5']);
+        if ($request->file('bukti_foto_5')) {
+            $data['bukti_foto_5'] = $request->file('bukti_foto_5')->store(
+                'assets/pendampingan-pemeriksaan-fisik',
+                'public'
+            );
+        }
+        unset($data['bukti_foto_6']);
+        if ($request->file('bukti_foto_6')) {
+            $data['bukti_foto_6'] = $request->file('bukti_foto_6')->store(
+                'assets/pendampingan-pemeriksaan-fisik',
+                'public'
+            );
+        }
+
+        $item = PemeriksaanFisik::findOrFail($id);
+        $item->update($data);
+
+        return redirect()->route('pendampingan-pemeriksaan-fisik.index');
     }
 
     /**
