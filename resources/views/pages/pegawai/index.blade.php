@@ -30,8 +30,8 @@
                                         <th>NIP</th>
                                         <th>Nama</th>
                                         <th>Email</th>
-                                        <th>Phone</th>
-                                        <th>Alamat</th>
+                                        <th>Kehadiran</th>
+                                        <th>Point</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -43,8 +43,22 @@
                                             <td>{{ $item->nip }}</td>
                                             <td>{{ $item->name }}</td>
                                             <td>{{ $item->email }}</td>
-                                            <td>{{ $item->phone }}</td>
-                                            <td>{{ $item->address }}</td>
+                                            <td>{{ $item->presentase_kehadiran }} %</td>
+                                            <td>
+                                                @if ($item->total_point < 60)
+                                                    <span class="badge badge-danger">
+                                                        {{ $item->total_point }}
+                                                    </span>
+                                                @elseif ($item->total_point <= 75)
+                                                    <span class="badge badge-warning">
+                                                        {{ $item->total_point }}
+                                                    </span>
+                                                @else
+                                                    <span class="badge badge-success">
+                                                        {{ $item->total_point }}
+                                                    </span>
+                                                @endif
+                                            </td>
                                             <td>
                                                 <form id="formDelete{{ $item->id }}"
                                                     action="{{ route('pegawai.destroy', $item->id) }}" method="POST"

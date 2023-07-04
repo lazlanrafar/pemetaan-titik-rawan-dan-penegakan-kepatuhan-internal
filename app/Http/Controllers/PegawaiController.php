@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Pegawai;
+use App\Models\KegiatanInternalDetail;
 
 class PegawaiController extends Controller
 {
@@ -13,6 +14,25 @@ class PegawaiController extends Controller
     public function index()
     {
         $items = Pegawai::all();
+
+        foreach ($items as $item) {
+            $all_kegiatan = KegiatanInternalDetail::where('id_pegawai', $item->id)->get();
+
+            $total_kegiatan = count($all_kegiatan);
+            $total_kehadiran = count($all_kegiatan->where('is_kehadiran', true));
+
+            $total_pelanggaran = count($all_kegiatan->where('is_pelanggaran', true));
+            $total_penghargaan = count($all_kegiatan->where('is_penghargaan', true));
+
+            $presentase_kehadiran = $total_kegiatan == 0 ? 0 : round($total_kehadiran / $total_kegiatan * 100, 2);
+            $point_kehadiran = $presentase_kehadiran == 100 ? 80 : round($presentase_kehadiran / 100 * 80, 2);
+
+            $point_pelanggaran = $total_pelanggaran * 20;
+            $point_penghargaan = $total_penghargaan * 20;
+
+            $item->presentase_kehadiran = $presentase_kehadiran;
+            $item->total_point = $point_kehadiran - $point_pelanggaran + $point_penghargaan;
+        }
 
         return view('pages.pegawai.index', [
             "items" => $items
