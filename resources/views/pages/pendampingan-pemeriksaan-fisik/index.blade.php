@@ -55,7 +55,7 @@
                                                     data-target="#modalDetail{{ $item->id }}">
                                                     <i class="fa fa-eye"></i>
                                                 </a>
-                                                {{-- @include('pages.pendampingan-pemeriksaan-fisik.detail') --}}
+                                                @include('pages.pendampingan-pemeriksaan-fisik.detail')
                                                 <a type="button" class="btn btn-warning" data-toggle="modal"
                                                     data-target="#formUpdate{{ $item->id }}">
                                                     <i class="fa fa-edit"></i>
