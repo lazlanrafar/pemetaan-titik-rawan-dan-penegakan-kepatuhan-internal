@@ -50,11 +50,11 @@
                                             </td>
                                             <td>{{ Str::limit($item->hasil_pelaksanaan, 100, '...') }}</td>
                                             <td style="min-width:150px">
-                                                <a href="{{ route('pengawasan-pelaksanaan-tugas.show', $item->id) }}"
-                                                    class="btn btn-info">
+                                                <a type="button" class="btn btn-info" data-toggle="modal"
+                                                    data-target="#modalDetail{{ $item->id }}">
                                                     <i class="fa fa-eye"></i>
                                                 </a>
-
+                                                @include('pages.pengawasan-pelaksanaan-tugas.detail')
                                                 <a type="button" class="btn btn-warning" data-toggle="modal"
                                                     data-target="#formUpdate{{ $item->id }}">
                                                     <i class="fa fa-edit"></i>
