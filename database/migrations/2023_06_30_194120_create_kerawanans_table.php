@@ -15,13 +15,13 @@ return new class extends Migration
             $table->id();
             $table->json('kategori');
             $table->string('nama_lokasi');
-            $table->string('koordinat_lokasi');
+            $table->longText('koordinat_lokasi');
             $table->string('foto_lokasi');
-            $table->string('informasi_bisnis');
-            $table->string('atensi_komoditas');
-            $table->string('riwayat_penindakan');
-            $table->string('riwayat_pelanggaran');
-            $table->string('tingkat_pelanggaran');
+            $table->longText('informasi_bisnis');
+            $table->longText('atensi_komoditas');
+            $table->longText('riwayat_penindakan');
+            $table->longText('riwayat_pelanggaran');
+            $table->longText('tingkat_pelanggaran');
             $table->timestamps();
         });
     }

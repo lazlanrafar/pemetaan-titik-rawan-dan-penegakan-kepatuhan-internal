@@ -52,12 +52,11 @@
                                 <thead>
                                     <tr>
                                         <th>No</th>
-                                        <th>Foto Lokasi</th>
-                                        <th>Kategori</th>
-                                        <th>Nama Lokasi</th>
+                                        <th style="min-width: 100px">Foto Lokasi</th>
+                                        <th style="min-width: 100px">Nama Lokasi</th>
+                                        <th style="min-width: 250px">Kategori</th>
                                         <th>Informasi Bisnis</th>
                                         <th>Atensi Komoditas</th>
-                                        <th>Koordinat Lokasi</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -68,8 +67,9 @@
                                             <td>{{ $i }}</td>
                                             <td>
                                                 <img src="{{ Storage::url($item->foto_lokasi) }}" alt="Foto Lokasi"
-                                                    width="100px" height="100px" />
+                                                    height="100px" />
                                             </td>
+                                            <td>{{ $item->nama_lokasi }}</td>
                                             <td>
                                                 <ul>
                                                     @foreach ($item->kategori as $kategori)
@@ -77,15 +77,8 @@
                                                     @endforeach
                                                 </ul>
                                             </td>
-                                            <td>{{ $item->nama_lokasi }}</td>
-                                            <td>{{ $item->informasi_bisnis }}</td>
-                                            <td>{{ $item->atensi_komoditas }}</td>
-                                            <td>
-                                                <a href="https://www.google.com/maps/search/?api=1&query={{ $item->koordinat_lokasi }}"
-                                                    target="_blank">
-                                                    {{ $item->koordinat_lokasi }}
-                                                </a>
-                                            </td>
+                                            <td>{{ Str::limit($item->informasi_bisnis, 200) }}</td>
+                                            <td>{{ Str::limit($item->atensi_komoditas, 200) }}</td>
                                             <td style="min-width:150px">
                                                 <a type="button" class="btn btn-warning" data-toggle="modal"
                                                     data-target="#formUpdate{{ $item->id }}">
