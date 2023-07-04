@@ -53,7 +53,7 @@
                                     <tr>
                                         <th>No</th>
                                         <th style="min-width: 100px">Foto Lokasi</th>
-                                        <th style="min-width: 100px">Nama Lokasi</th>
+                                        <th>Nama Lokasi</th>
                                         <th style="min-width: 200px">Kategori</th>
                                         {{-- <th>Informasi Bisnis</th>
                                         <th>Atensi Komoditas</th> --}}
