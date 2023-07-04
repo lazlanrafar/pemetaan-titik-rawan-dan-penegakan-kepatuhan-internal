@@ -76,6 +76,14 @@ class PemantauanKegiatanInternal extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $kegiatan = KegiatanInternal::findOrFail($id);
+        $kegiatan->delete();
+
+        $detail = KegiatanInternalDetail::where('id_kegiatan_internal', $id)->get();
+        foreach ($detail as $item) {
+            $item->delete();
+        }
+
+        return redirect()->route('pemantauan-kegiatan-internal.index')->with('success', 'Data berhasil dihapus');
     }
 }
