@@ -23,7 +23,6 @@ class PengawasanPelaksanaanTugasController extends Controller
 
         $items = PelaksanaanTugas::orderBy('created_at', 'desc')->get();
         foreach ($items as $item) {
-            $item->nama_pelaksana = json_decode($item->nama_pelaksana);
             $item->jenis_waskat = json_decode($item->jenis_waskat);
             $item->tanggal_periode = date('Y-m', strtotime($item->tanggal_periode));
         }
@@ -41,7 +40,6 @@ class PengawasanPelaksanaanTugasController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-        $data['nama_pelaksana'] = json_encode($data['nama_pelaksana']);
         $data['jenis_waskat'] = json_encode($data['jenis_waskat']);
         $data['tanggal_periode'] = date('Y-m-d', strtotime($data['tanggal_periode']));
 
@@ -107,27 +105,11 @@ class PengawasanPelaksanaanTugasController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        $item = PelaksanaanTugas::findOrFail($id);
-        $item->nama_pelaksana = json_decode($item->nama_pelaksana);
-        $item->jenis_waskat = json_decode($item->jenis_waskat);
-        $item->tanggal_periode = date('Y-m', strtotime($item->tanggal_periode));
-
-        return view('pages.pengawasan-pelaksanaan-tugas.detail', [
-            "item" => $item
-        ]);
-    }
-
-    /**
      * Update the specified resource in storage.
      */
     public function update(Request $request, string $id)
     {
         $data = $request->all();
-        $data['nama_pelaksana'] = json_encode($data['nama_pelaksana']);
         $data['jenis_waskat'] = json_encode($data['jenis_waskat']);
         $data['tanggal_periode'] = date('Y-m-d', strtotime($data['tanggal_periode']));
 
