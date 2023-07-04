@@ -80,6 +80,11 @@
                                             <td>{{ Str::limit($item->informasi_bisnis, 200) }}</td>
                                             <td>{{ Str::limit($item->atensi_komoditas, 200) }}</td>
                                             <td style="min-width:150px">
+                                                <a type="button" class="btn btn-info" data-toggle="modal"
+                                                    data-target="#modalDetail{{ $item->id }}">
+                                                    <i class="fa fa-eye"></i>
+                                                </a>
+                                                @include('pages.data-kerawanan.detail')
                                                 <a type="button" class="btn btn-warning" data-toggle="modal"
                                                     data-target="#formUpdate{{ $item->id }}">
                                                     <i class="fa fa-edit"></i>
