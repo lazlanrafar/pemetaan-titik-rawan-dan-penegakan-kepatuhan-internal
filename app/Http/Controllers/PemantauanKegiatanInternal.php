@@ -59,19 +59,16 @@ class PemantauanKegiatanInternal extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
-
-    /**
      * Update the specified resource in storage.
      */
     public function update(Request $request, string $id)
     {
-        //
+        $data = $request->all();
+
+        $kegiatan = KegiatanInternal::findOrFail($id);
+        $kegiatan->update($data);
+
+        return redirect()->route('pemantauan-kegiatan-internal.index')->with('success', 'Data berhasil diubah');
     }
 
     /**
