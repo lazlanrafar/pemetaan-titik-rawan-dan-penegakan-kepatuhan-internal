@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('pelaksanaan_tugas', function (Blueprint $table) {
             $table->id();
             $table->integer('id_petugas');
-            $table->json('nama_pelaksana');
+            $table->longText('nama_pelaksana');
             $table->date('tanggal');
             $table->json('jenis_waskat');
             $table->string('tempat')->nullable();
@@ -27,7 +27,7 @@ return new class extends Migration
             $table->longText('kesimpulan')->nullable();
             $table->string('nama_pelanggar')->nullable();
             $table->string('foto_pelanggar')->nullable();
-            $table->string('bidang_pelanggar')->nullable();
+            $table->longText('bidang_pelanggar')->nullable();
             $table->longText('pelanggaran')->nullable();
             $table->string('dokumantasi_pelanggaran')->nullable();
             $table->longText('informasi_tambahan')->nullable();

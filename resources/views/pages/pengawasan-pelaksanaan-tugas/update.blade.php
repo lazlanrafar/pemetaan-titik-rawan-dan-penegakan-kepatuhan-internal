@@ -27,17 +27,8 @@
                         <div class="col-12">
                             <div class="form-group">
                                 <label>Nama-Nama Petugas UKI yang Melaksanakan Kegiatan Pemantauan</label>
-                                <div class="select2-blue">
-                                    <select class="select2" multiple="multiple" data-placeholder="Select a State"
-                                        style="width: 100%;" name="nama_pelaksana[]" required>
-                                        <option>Pilih Petugas</option>
-                                        @foreach ($list_pegawai as $pegawai)
-                                            <option value="{{ $pegawai->id }}"
-                                                @if (in_array($pegawai->id, $item->nama_pelaksana)) selected @endif>{{ $pegawai->nip }} -
-                                                {{ $pegawai->name }}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
+                                <input type="text" class="form-control" name="nama_pelaksana" required
+                                    value="{{ $item->nama_pelaksana }}" />
                             </div>
                         </div>
                         <div class="col-12">
