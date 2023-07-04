@@ -17,7 +17,7 @@
                         <p>Dashboard</p>
                     </a>
                 </li>
-                <li class="nav-header">Main</li>
+                <li class="nav-header font-weight-bold">Main</li>
                 <li class="nav-item">
                     <a href="/data-kerawanan" class="nav-link {{ Request::is('data-kerawanan') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-book"></i>
@@ -38,11 +38,18 @@
                         <p>Pemeriksaan Fisik</p>
                     </a>
                 </li>
-                <li class="nav-header">Setup</li>
+                <li class="nav-item">
+                    <a href="/pemantauan-kegiatan-internal"
+                        class="nav-link {{ Request::is('pemantauan-kegiatan-internal') ? 'active' : '' }}">
+                        <i class="nav-icon fa fa-eye"></i>
+                        <p>Pemantauan Kegiatan</p>
+                    </a>
+                </li>
+                <li class="nav-header font-weight-bold">Setup</li>
                 <li class="nav-item">
                     <a href="/pegawai" class="nav-link {{ Request::is('pegawai') ? 'active' : '' }}">
-                        <i class="nav-icon fas fa-users"></i>
-                        <p>Pegawai</p>
+                        <i class="nav-icon fas fa-user-md"></i>
+                        <p>Pegawai Kantor</p>
                     </a>
                 </li>
                 <li class="nav-item">
