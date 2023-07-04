@@ -16,6 +16,11 @@ class PemantauanKegiatanInternal extends Controller
     {
         $items = KegiatanInternal::orderBy('created_at', 'desc')->get();
 
+        // count total pegawai
+        foreach ($items as $item) {
+            $item->total_pegawai = KegiatanInternalDetail::where('id_kegiatan_internal', $item->id)->count();
+        }
+
         $list_jenis = ['Senam', 'PKP', 'Apel', 'Edukasi KI', 'Bintal', 'Kegiatan Lainnya'];
         $list_pegawai = Pegawai::orderBy('name', 'asc')->get();
 
