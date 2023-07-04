@@ -17,6 +17,7 @@ class KegiatanInternal extends Model
      */
     protected $fillable = [
         'id_petugas',
+        'nama_kegiatan',
         'jenis_kegiatan',
         'lokasi_kegiatan',
     ];

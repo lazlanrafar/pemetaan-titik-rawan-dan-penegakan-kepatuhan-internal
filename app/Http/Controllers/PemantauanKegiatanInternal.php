@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\KegiatanInternal;
+use App\Models\Pegawai;
 
 class PemantauanKegiatanInternal extends Controller
 {
@@ -14,8 +15,13 @@ class PemantauanKegiatanInternal extends Controller
     {
         $items = KegiatanInternal::orderBy('created_at', 'desc')->get();
 
+        $list_jenis = ['Senam', 'PKP', 'Apel', 'Edukasi KI', 'Bintal', 'Kegiatan Lainnya'];
+        $list_pegawai = Pegawai::orderBy('name', 'asc')->get();
+
         return view('pages.pemantauan-kegiatan-internal.index', [
             "items" => $items,
+            "list_jenis" => $list_jenis,
+            "list_pegawai" => $list_pegawai,
         ]);
     }
 

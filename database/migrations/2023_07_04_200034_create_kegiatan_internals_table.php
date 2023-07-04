@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('kegiatan_internals', function (Blueprint $table) {
             $table->id();
             $table->integer('id_petugas');
+            $table->longText('nama_kegiatan');
             $table->longText('jenis_kegiatan');
             $table->longText('lokasi_kegiatan');
             $table->timestamps();

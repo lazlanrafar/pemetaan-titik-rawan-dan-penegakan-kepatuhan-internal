@@ -4,7 +4,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Pegawai</h1>
+                    <h1>Pemantauan Kegiatan Internal</h1>
                 </div>
             </div>
         </div>
@@ -21,7 +21,7 @@
                         <div class="card-body">
                             <a type="button" class="btn btn-primary" data-toggle="modal" data-target="#formCreate"><i
                                     class="fa fa-plus"></i> Tambah</a>
-                            @include('pages.pegawai.create')
+                            @include('pages.pemantauan-kegiatan-internal.create')
 
                             <table id="defaultTable" class="table table-bordered table-striped">
                                 <thead>
@@ -47,8 +47,8 @@
                                             <td>{{ $item->address }}</td>
                                             <td>
                                                 <form id="formDelete{{ $item->id }}"
-                                                    action="{{ route('pegawai.destroy', $item->id) }}" method="POST"
-                                                    class="d-inline">
+                                                    action="{{ route('pemantauan-kegiatan-internal.destroy', $item->id) }}"
+                                                    method="POST" class="d-inline">
                                                     @csrf
                                                     @method('delete')
                                                     <a type="button" class="btn btn-danger"
@@ -78,7 +78,7 @@
                                                     data-target="#formUpdate{{ $item->id }}">
                                                     <i class="fa fa-edit"></i>
                                                 </a>
-                                                @include('pages.pegawai.update')
+                                                @include('pages.pemantauan-kegiatan-internal.update')
 
                                             </td>
                                         </tr>
