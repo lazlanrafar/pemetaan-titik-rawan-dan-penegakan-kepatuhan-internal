@@ -27,11 +27,10 @@
                                 <thead>
                                     <tr>
                                         <th>No</th>
-                                        <th>Tanggal</th>
+                                        <th style="min-width: 80px">Tanggal</th>
                                         <th>Petugas</th>
-                                        <th>Jenis Waskat</th>
+                                        <th style="min-width: 150px">Jenis Waskat</th>
                                         <th>Hasil Pelaksanaan</th>
-                                        <th>Keimpulan</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -49,8 +48,7 @@
                                                     @endforeach
                                                 </ul>
                                             </td>
-                                            <td>{{ $item->hasil_pelaksanaan }}</td>
-                                            <td>{{ $item->kesimpulan }}</td>
+                                            <td>{{ Str::limit($item->hasil_pelaksanaan, 100, '...') }}</td>
                                             <td style="min-width:150px">
                                                 <a href="{{ route('pengawasan-pelaksanaan-tugas.show', $item->id) }}"
                                                     class="btn btn-info">
