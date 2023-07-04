@@ -46,6 +46,10 @@
                                             <td>{{ $item->lokasi_kegiatan }}</td>
                                             <td>{{ $item->total_pegawai }}</td>
                                             <td>
+                                                <a type="button" class="btn btn-info"
+                                                    href="/pemantauan-kegiatan-internal/{{ $item->id }}">
+                                                    <i class="fa fa-eye"></i>
+                                                </a>
                                                 <form id="formDelete{{ $item->id }}"
                                                     action="{{ route('pemantauan-kegiatan-internal.destroy', $item->id) }}"
                                                     method="POST" class="d-inline">

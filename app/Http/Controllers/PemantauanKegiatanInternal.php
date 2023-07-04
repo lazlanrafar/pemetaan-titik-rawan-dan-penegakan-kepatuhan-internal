@@ -55,7 +55,13 @@ class PemantauanKegiatanInternal extends Controller
      */
     public function show(string $id)
     {
-        //
+        $item = KegiatanInternal::findOrFail($id);
+        $list_pegawai = KegiatanInternalDetail::where('id_kegiatan_internal', $item->id)->get();
+
+        return view('pages.pemantauan-kegiatan-internal.detail', [
+            "item" => $item,
+            "list_pegawai" => $list_pegawai,
+        ]);
     }
 
     /**
