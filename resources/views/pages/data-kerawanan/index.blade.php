@@ -54,9 +54,9 @@
                                         <th>No</th>
                                         <th style="min-width: 100px">Foto Lokasi</th>
                                         <th style="min-width: 100px">Nama Lokasi</th>
-                                        <th style="min-width: 250px">Kategori</th>
-                                        <th>Informasi Bisnis</th>
-                                        <th>Atensi Komoditas</th>
+                                        <th style="min-width: 200px">Kategori</th>
+                                        {{-- <th>Informasi Bisnis</th>
+                                        <th>Atensi Komoditas</th> --}}
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -77,8 +77,8 @@
                                                     @endforeach
                                                 </ul>
                                             </td>
-                                            <td>{{ Str::limit($item->informasi_bisnis, 200) }}</td>
-                                            <td>{{ Str::limit($item->atensi_komoditas, 200) }}</td>
+                                            {{-- <td>{{ Str::limit($item->informasi_bisnis, 200) }}</td>
+                                            <td>{{ Str::limit($item->atensi_komoditas, 200) }}</td> --}}
                                             <td style="min-width:150px">
                                                 <a type="button" class="btn btn-info" data-toggle="modal"
                                                     data-target="#modalDetail{{ $item->id }}">
