@@ -22,7 +22,12 @@
                             <div class="text-poppins text-sm">
                                 <table>
                                     <tr>
-                                        <td class="fw-medium" style="min-width: 130px">Nama Kegiatan</td>
+                                        <td class="fw-medium">Nama Petugas Input</td>
+                                        <td>:</td>
+                                        <td>{{ $item->petugas->name }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="fw-medium" style="min-width: 160px">Nama Kegiatan</td>
                                         <td style="min-width: 20px">:</td>
                                         <td>{{ $item->nama_kegiatan }}</td>
                                     </tr>
@@ -37,6 +42,20 @@
                                         <td>{{ $item->tanggal_kegiatan }}</td>
                                     </tr>
                                 </table>
+                                @if ($item->arahan)
+                                    <br>
+                                    <table>
+                                        <tr>
+                                            <td class="fw-medium" style="min-width: 160px">Arahan Oleh</td>
+                                            <td style="min-width: 20px">:</td>
+                                            <td>{{ $item->pengarah->name }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="fw-medium">Arahan</td>
+                                        </tr>
+                                    </table>
+                                    <p class="mt-2">{{ $item->arahan }}</p>
+                                @endif
                             </div>
                             <table id="defaultTable" class="table table-bordered table-striped">
                                 <thead>
