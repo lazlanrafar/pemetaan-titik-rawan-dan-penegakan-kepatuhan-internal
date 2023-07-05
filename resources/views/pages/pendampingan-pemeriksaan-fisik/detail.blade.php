@@ -12,6 +12,16 @@
                 </button>
             </div>
             <div class="modal-body text-poppins text-sm">
+                @if ($item->arahan)
+                    <div class="card bg-info">
+                        <div class="card-body">
+                            <p>"{{ $item->arahan }}"</p>
+                            <p class="mb-0">
+                                Arahan oleh : {{ $item->pengarah->name }}
+                            </p>
+                        </div>
+                    </div>
+                @endif
                 <div class="mb-4">
                     <p class="mb-0 fw-medium">Nama Petugas UKI yang Melaksanakan Penginputan</p>
                     <p>{{ $item->petugas->name }}</p>
