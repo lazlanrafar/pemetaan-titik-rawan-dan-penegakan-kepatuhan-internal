@@ -13,7 +13,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $list_role = ['Pelaksana', 'Kepala Seksi', 'Kepala Bidang'];
+        $list_role = ['Superuser','Pelaksana', 'Kepala Seksi', 'Kepala Bidang'];
 
         $items = User::all();
 

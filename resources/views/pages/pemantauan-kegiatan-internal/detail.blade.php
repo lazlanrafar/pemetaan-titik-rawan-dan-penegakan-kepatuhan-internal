@@ -47,7 +47,9 @@
                                         <th>Hadir</th>
                                         <th>Pelanggaran</th>
                                         <th>Penghargaan</th>
-                                        <th>Action</th>
+                                        @if (request()->session()->get('user')['role'] === 'Pelaksana')
+                                            <th>Action</th>
+                                        @endif
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -78,47 +80,49 @@
                                                     -
                                                 @endif
                                             </td>
-                                            <td>
-                                                @if (!$detail->is_kehadiran)
-                                                    <form id="formHadir{{ $detail->id }}"
-                                                        action="/pemantauan-kegiatan-internal-hadir/{{ $detail->id }}"
-                                                        method="POST" class="d-inline">
+                                            @if (request()->session()->get('user')['role'] === 'Pelaksana')
+                                                <td>
+                                                    @if (!$detail->is_kehadiran)
+                                                        <form id="formHadir{{ $detail->id }}"
+                                                            action="/pemantauan-kegiatan-internal-hadir/{{ $detail->id }}"
+                                                            method="POST" class="d-inline">
 
-                                                        <input type="hidden" name="kegiatan_internal_id"
-                                                            value="{{ $item->id }}">
-                                                        @csrf
-                                                        @method('put')
-                                                        <a type="button" class="btn btn-primary"
-                                                            onclick="handleHadir({{ $detail->id }})">
-                                                            <i class="fa fa-check"></i>
-                                                        </a>
-                                                    </form>
+                                                            <input type="hidden" name="kegiatan_internal_id"
+                                                                value="{{ $item->id }}">
+                                                            @csrf
+                                                            @method('put')
+                                                            <a type="button" class="btn btn-primary"
+                                                                onclick="handleHadir({{ $detail->id }})">
+                                                                <i class="fa fa-check"></i>
+                                                            </a>
+                                                        </form>
 
-                                                    <script>
-                                                        function handleHadir(id) {
-                                                            Swal.fire({
-                                                                title: 'Apakah kamu yakin?',
-                                                                text: "kamu akan mengubah status kehadiran pegawai!",
-                                                                icon: 'warning',
-                                                                showCancelButton: true,
-                                                                confirmButtonColor: '#3085d6',
-                                                                cancelButtonColor: '#d33',
-                                                                confirmButtonText: 'Ya, hapus!'
-                                                            }).then((result) => {
-                                                                if (result.isConfirmed) {
-                                                                    document.getElementById('formHadir' + id).submit();
-                                                                }
-                                                            })
-                                                        }
-                                                    </script>
-                                                @endif
-                                                <a type="button" class="btn btn-warning" data-toggle="modal"
-                                                    data-target="#formUpdate{{ $detail->id }}">
-                                                    <i class="fa fa-edit"></i>
-                                                </a>
-                                                @include('pages.pemantauan-kegiatan-internal.detail-update')
+                                                        <script>
+                                                            function handleHadir(id) {
+                                                                Swal.fire({
+                                                                    title: 'Apakah kamu yakin?',
+                                                                    text: "kamu akan mengubah status kehadiran pegawai!",
+                                                                    icon: 'warning',
+                                                                    showCancelButton: true,
+                                                                    confirmButtonColor: '#3085d6',
+                                                                    cancelButtonColor: '#d33',
+                                                                    confirmButtonText: 'Ya, hapus!'
+                                                                }).then((result) => {
+                                                                    if (result.isConfirmed) {
+                                                                        document.getElementById('formHadir' + id).submit();
+                                                                    }
+                                                                })
+                                                            }
+                                                        </script>
+                                                    @endif
+                                                    <a type="button" class="btn btn-warning" data-toggle="modal"
+                                                        data-target="#formUpdate{{ $detail->id }}">
+                                                        <i class="fa fa-edit"></i>
+                                                    </a>
+                                                    @include('pages.pemantauan-kegiatan-internal.detail-update')
 
-                                            </td>
+                                                </td>
+                                            @endif
                                         </tr>
                                         <?php $i++; ?>
                                     @endforeach

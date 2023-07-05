@@ -52,12 +52,14 @@
                         <p>Pegawai Kantor</p>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a href="/user" class="nav-link {{ Request::is('user') ? 'active' : '' }}">
-                        <i class="nav-icon fas fa-user"></i>
-                        <p>User</p>
-                    </a>
-                </li>
+                @if (request()->session()->get('user')['role'] === 'Superuser')
+                    <li class="nav-item">
+                        <a href="/user" class="nav-link {{ Request::is('user') ? 'active' : '' }}">
+                            <i class="nav-icon fas fa-user"></i>
+                            <p>User</p>
+                        </a>
+                    </li>
+                @endif
             </ul>
         </nav>
     </div>
