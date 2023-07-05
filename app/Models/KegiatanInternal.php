@@ -20,9 +20,15 @@ class KegiatanInternal extends Model
         'nama_kegiatan',
         'jenis_kegiatan',
         'lokasi_kegiatan',
+        'id_pengarah',
+        'arahan',
     ];
 
     function petugas(){
          return $this->belongsTo(User::class, 'id_petugas');
+    }
+
+    function pengarah(){
+         return $this->belongsTo(User::class, 'id_pengarah');
     }
 }

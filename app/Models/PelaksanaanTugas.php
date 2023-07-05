@@ -39,9 +39,15 @@ class PelaksanaanTugas extends Model
         'dokumentasi_3',
         'dokumentasi_4',
         'dokumentasi_5',
+        'id_pengarah',
+        'arahan',
     ];
 
    function petugas(){
        return $this->belongsTo(User::class, 'id_petugas');
    }
+
+    function pengarah(){
+          return $this->belongsTo(User::class, 'id_pengarah');
+    }
 }

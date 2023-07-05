@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\User;
 
 class Kerawanan extends Model
 {
@@ -24,5 +25,11 @@ class Kerawanan extends Model
         'riwayat_penindakan',
         'riwayat_pelanggaran',
         'tingkat_pelanggaran',
+        'id_pengarah',
+        'arahan',
     ];
+
+    function pengarah(){
+         return $this->belongsTo(User::class, 'id_pengarah');
+    }
 }

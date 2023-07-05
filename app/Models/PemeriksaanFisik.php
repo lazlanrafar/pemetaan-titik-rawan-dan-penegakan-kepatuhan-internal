@@ -52,9 +52,15 @@ class PemeriksaanFisik extends Model
         'bukti_foto_4',
         'bukti_foto_5',
         'bukti_foto_6',
+        'id_pengarah',
+        'arahan',
     ];
 
     function petugas(){
         return $this->belongsTo(User::class, 'id_petugas');
+    }
+
+    function pengarah(){
+          return $this->belongsTo(User::class, 'id_pengarah');
     }
 }
