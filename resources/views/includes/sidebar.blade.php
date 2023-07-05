@@ -2,7 +2,7 @@
     <!-- Brand Logo -->
     <a href="/" class="brand-link">
         <img src="{{ url('/logo.png') }}" alt="Logo" class="brand-image" />
-        <span class="brand-text font-weight-normal">Logo</span>
+        <span class="brand-text text-poppins fw-medium">Sipetir.</span>
     </a>
 
     <!-- Sidebar -->

@@ -1,9 +1,9 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Sistem Informasi Pemetaan Titik Rawan dan Penegakan Kepatuhan Internal</title>
+    <title>Sipetir - Sistem Informasi Pemetaan Titik Rawan dan Penegakan Kepatuhan Internal</title>
 
-    <link rel="icon" href="{{ url('/bright.png') }}" type="image/icon">
+    <link rel="icon" href="{{ url('/logo.png') }}" type="image/icon">
 
     <link rel="stylesheet" href="{{ url('/style.css') }}">
     <!-- Google Font: Source Sans Pro -->
