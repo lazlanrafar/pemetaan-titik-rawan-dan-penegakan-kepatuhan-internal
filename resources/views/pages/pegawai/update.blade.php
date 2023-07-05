@@ -1,7 +1,7 @@
 <!-- Modal -->
 <div class="modal fade" id="formUpdate{{ $item->id }}" tabindex="-1" role="dialog" aria-labelledby="formUpdateLabel"
     aria-hidden="true">
-    <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-dialog" role="document">
         <div class="modal-content">
             <form action="{{ route('pegawai.update', $item->id) }}" method="POST">
                 @csrf
@@ -16,43 +16,50 @@
                 </div>
                 <div class="modal-body">
                     <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-12">
                             <div class="form-group">
                                 <label for="namalengkap">Nama Lengkap</label>
-                                <input type="text" class="form-control" id="namalengkap"
-                                    placeholder="Enter Nama Lengkap" name="name" value="{{ $item->name }}"
-                                    required />
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="nip">NIP</label>
-                                <input type="text" class="form-control" id="nip" placeholder="Enter NIP"
-                                    name="nip" value="{{ $item->nip }}" required />
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="email-address">Email address</label>
-                                <input type="email" class="form-control" id="email-address" placeholder="Enter email"
-                                    name="email" value="{{ $item->email }}" required />
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="phone">Phone</label>
-                                <input type="text" class="form-control" id="phone" placeholder="Phone"
-                                    name="phone" value="{{ $item->phone }}" />
+                                <input type="text" class="form-control" id="namalengkap" value="{{ $item->name }}"
+                                    placeholder="Enter Nama Lengkap" name="name" required />
                             </div>
                         </div>
                         <div class="col-12">
                             <div class="form-group">
-                                <label for="address">Alamat</label>
-                                <textarea type="text" class="form-control" id="address" name="address">{{ $item->address }}</textarea>
+                                <label for="nip">NIP</label>
+                                <input type="text" class="form-control" id="nip" placeholder="Enter NIP"
+                                    value="{{ $item->nip }}" name="nip" required />
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="form-group">
+                                <label for="pangkat">Pangkat</label>
+                                <input type="text" class="form-control" id="pangkat" placeholder="pangkat"
+                                    value="{{ $item->pangkat }}" name="pangkat" />
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="form-group">
+                                <label for="golongan">Golongan</label>
+                                <input type="text" class="form-control" id="golongan" placeholder="golongan"
+                                    value="{{ $item->golongan }}" name="golongan" />
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="form-group">
+                                <label for="jabatan">Jabatan</label>
+                                <input type="text" class="form-control" id="jabatan" placeholder="jabatan"
+                                    value="{{ $item->jabatan }}" name="jabatan" />
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="form-group">
+                                <label for="unit_eselon_3">Unit Eselon III</label>
+                                <input type="text" class="form-control" id="unit_eselon_3"
+                                    value="{{ $item->unit_eselon_3 }}" placeholder="Unit Eselon III"
+                                    name="unit_eselon_3" />
                             </div>
                         </div>
                     </div>
-
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">
