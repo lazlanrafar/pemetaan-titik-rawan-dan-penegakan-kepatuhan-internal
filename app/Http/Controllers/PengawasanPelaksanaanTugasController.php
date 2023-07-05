@@ -110,8 +110,11 @@ class PengawasanPelaksanaanTugasController extends Controller
     public function update(Request $request, string $id)
     {
         $data = $request->all();
-        $data['jenis_waskat'] = json_encode($data['jenis_waskat']);
-        $data['tanggal_periode'] = date('Y-m-d', strtotime($data['tanggal_periode']));
+
+        if($request['jenis_waskat']){
+            $data['jenis_waskat'] = json_encode($data['jenis_waskat']);
+            $data['tanggal_periode'] = date('Y-m-d', strtotime($data['tanggal_periode']));
+        }
 
         unset($data['foto_pelanggar']);
         if ($request->file('foto_pelanggar')) {
