@@ -13,7 +13,7 @@ class PegawaiController extends Controller
      */
     public function index()
     {
-        $items = Pegawai::all();
+        $items = Pegawai::orderBy('name', 'asc')->get();
 
         foreach ($items as $item) {
             $all_kegiatan = KegiatanInternalDetail::where('id_pegawai', $item->id)->get();
