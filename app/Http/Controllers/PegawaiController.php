@@ -21,17 +21,18 @@ class PegawaiController extends Controller
             $total_kegiatan = count($all_kegiatan);
             $total_kehadiran = count($all_kegiatan->where('is_kehadiran', true));
 
-            $total_pelanggaran = count($all_kegiatan->where('is_pelanggaran', true));
-            $total_penghargaan = count($all_kegiatan->where('is_penghargaan', true));
+            // $total_pelanggaran = count($all_kegiatan->where('is_pelanggaran', true));
+            // $total_penghargaan = count($all_kegiatan->where('is_penghargaan', true));
 
             $presentase_kehadiran = $total_kegiatan == 0 ? 0 : round($total_kehadiran / $total_kegiatan * 100, 2);
             $point_kehadiran = $presentase_kehadiran == 100 ? 80 : round($presentase_kehadiran / 100 * 80, 2);
 
-            $point_pelanggaran = $total_pelanggaran * 20;
-            $point_penghargaan = $total_penghargaan * 20;
+            // $point_pelanggaran = $total_pelanggaran * 20;
+            // $point_penghargaan = $total_penghargaan * 20;
 
             $item->presentase_kehadiran = $presentase_kehadiran;
-            $item->total_point = $point_kehadiran - $point_pelanggaran + $point_penghargaan;
+            // $item->total_point = $point_kehadiran - $point_pelanggaran + $point_penghargaan;
+            $item->total_point = $point_kehadiran;
         }
 
         return view('pages.pegawai.index', [

@@ -31,9 +31,10 @@
                                         <th>No</th>
                                         <th>NIP</th>
                                         <th>Nama</th>
-                                        <th>Email</th>
+                                        <th>Pangkat</th>
+                                        <th>Golongan</th>
                                         <th>Kehadiran</th>
-                                        <th>Point</th>
+                                        <th>Nilai Integritas</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -44,7 +45,8 @@
                                             <td>{{ $i }}</td>
                                             <td>{{ $item->nip }}</td>
                                             <td>{{ $item->name }}</td>
-                                            <td>{{ $item->email }}</td>
+                                            <td>{{ $item->pangkat }}</td>
+                                            <td>{{ $item->golongan }}</td>
                                             <td>{{ $item->presentase_kehadiran }} %</td>
                                             <td>
                                                 @if ($item->total_point < 60)
