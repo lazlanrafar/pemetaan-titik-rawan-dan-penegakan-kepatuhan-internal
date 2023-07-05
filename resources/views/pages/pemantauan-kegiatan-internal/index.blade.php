@@ -32,7 +32,7 @@
                                         <th>Petugas</th>
                                         <th>Nama Kegiatan</th>
                                         <th>Jenis</th>
-                                        <th>Tempat</th>
+                                        <th>Tanggal</th>
                                         <th>Total Pegawai</th>
                                         <th>Action</th>
                                     </tr>
@@ -45,7 +45,7 @@
                                             <td>{{ $item->petugas->name }}</td>
                                             <td>{{ $item->nama_kegiatan }}</td>
                                             <td>{{ $item->jenis_kegiatan }}</td>
-                                            <td>{{ $item->lokasi_kegiatan }}</td>
+                                            <td>{{ $item->tanggal_kegiatan }}</td>
                                             <td>{{ $item->total_pegawai }}</td>
                                             <td>
                                                 <a type="button" class="btn btn-info"

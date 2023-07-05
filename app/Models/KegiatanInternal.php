@@ -19,7 +19,7 @@ class KegiatanInternal extends Model
         'id_petugas',
         'nama_kegiatan',
         'jenis_kegiatan',
-        'lokasi_kegiatan',
+        'tanggal_kegiatan',
         'id_pengarah',
         'arahan',
     ];

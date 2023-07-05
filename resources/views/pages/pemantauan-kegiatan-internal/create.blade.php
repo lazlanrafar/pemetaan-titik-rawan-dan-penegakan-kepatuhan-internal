@@ -42,8 +42,8 @@
                         </div>
                         <div class="col-12">
                             <div class="form-group">
-                                <label for="lokasi_kegiatan">Lokasi Kegiatan</label>
-                                <input type="text" class="form-control" id="lokasi_kegiatan" name="lokasi_kegiatan"
+                                <label for="tanggal_kegiatan">Tanggal Kegiatan</label>
+                                <input type="date" class="form-control" id="tanggal_kegiatan" name="tanggal_kegiatan"
                                     required />
                             </div>
                         </div>
