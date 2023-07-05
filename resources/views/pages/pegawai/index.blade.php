@@ -64,6 +64,12 @@
                                                 @endif
                                             </td>
                                             <td>
+                                                <a type="button" class="btn btn-info" data-toggle="modal"
+                                                    data-target="#modalDetail{{ $item->id }}">
+                                                    <i class="fa fa-eye"></i>
+                                                </a>
+                                                @include('pages.pegawai.detail')
+
                                                 @if (request()->session()->get('user')['role'] === 'Pelaksana')
                                                     <a type="button" class="btn btn-warning" data-toggle="modal"
                                                         data-target="#formUpdatePerilaku{{ $item->id }}">

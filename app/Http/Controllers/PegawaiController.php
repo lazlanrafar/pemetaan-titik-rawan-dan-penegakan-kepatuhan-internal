@@ -27,6 +27,7 @@ class PegawaiController extends Controller
             $point_pelanggaran = $item->is_pelanggaran ? 20 : 0;
             $point_penghargaan = $item->is_penghargaan ? 20 : 0;
 
+            $item->total_kegiatan = $total_kegiatan;
             $item->presentase_kehadiran = $presentase_kehadiran;
             $item->total_point = $point_kehadiran - $point_pelanggaran + $point_penghargaan;
         }
