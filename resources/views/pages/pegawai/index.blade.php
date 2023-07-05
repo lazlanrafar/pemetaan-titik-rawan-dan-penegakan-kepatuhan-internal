@@ -65,6 +65,11 @@
                                             </td>
                                             <td>
                                                 @if (request()->session()->get('user')['role'] === 'Pelaksana')
+                                                    <a type="button" class="btn btn-warning" data-toggle="modal"
+                                                        data-target="#formUpdatePerilaku{{ $item->id }}">
+                                                        Perilaku
+                                                    </a>
+                                                    @include('pages.pegawai.update-perilaku')
                                                     <form id="formDelete{{ $item->id }}"
                                                         action="{{ route('pegawai.destroy', $item->id) }}" method="POST"
                                                         class="d-inline">
