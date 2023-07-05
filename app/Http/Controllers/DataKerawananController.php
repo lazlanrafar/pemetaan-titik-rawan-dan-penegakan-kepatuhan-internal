@@ -82,8 +82,9 @@ class DataKerawananController extends Controller
     {
         $data = $request->all();
 
-        // kategori to json
-        $data['kategori'] = json_encode($data['kategori']);
+        if ($request['kategori']){
+            $data['kategori'] = json_encode($data['kategori']);
+        }
 
         $item = Kerawanan::findOrFail($id);
 

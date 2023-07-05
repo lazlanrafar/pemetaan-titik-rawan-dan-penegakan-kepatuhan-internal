@@ -12,6 +12,15 @@
                 </button>
             </div>
             <div class="modal-body text-poppins text-sm">
+                <div class="card bg-info">
+                    <div class="card-body">
+                        <p>"{{ $item->arahan }}"</p>
+                        <p class="mb-0">
+                            Arahan oleh : {{ $item->pengarah->name }}
+                        </p>
+                    </div>
+                </div>
+
                 <div class="mb-4">
                     <p class="mb-0 fw-medium">Nama Lokasi Kegiatan</p>
                     <p>{{ $item->nama_lokasi }}</p>
