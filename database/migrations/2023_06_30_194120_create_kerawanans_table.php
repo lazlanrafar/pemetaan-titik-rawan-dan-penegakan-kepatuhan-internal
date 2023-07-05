@@ -17,11 +17,13 @@ return new class extends Migration
             $table->string('nama_lokasi');
             $table->longText('koordinat_lokasi');
             $table->string('foto_lokasi');
-            $table->longText('informasi_bisnis');
-            $table->longText('atensi_komoditas');
-            $table->longText('riwayat_penindakan');
-            $table->longText('riwayat_pelanggaran');
-            $table->longText('tingkat_pelanggaran');
+            $table->longText('informasi_bisnis')->nullable();
+            $table->longText('atensi_komoditas')->nullable();
+            $table->longText('riwayat_penindakan')->nullable();
+            $table->longText('riwayat_pelanggaran')->nullable();
+            $table->longText('tingkat_pelanggaran')->nullable();
+            $table->integer('id_pengarah')->nullable();
+            $table->longText('arahan')->nullable();
             $table->timestamps();
         });
     }

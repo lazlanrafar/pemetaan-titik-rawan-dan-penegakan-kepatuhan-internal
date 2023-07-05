@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('nip')->unique();
             $table->string('email')->unique();
-            $table->string('role')->default('PELAKSANA');
+            $table->string('role')->default('Pelaksana');
             $table->string('password');
             $table->string('phone')->nullable();
             $table->string('address')->nullable();

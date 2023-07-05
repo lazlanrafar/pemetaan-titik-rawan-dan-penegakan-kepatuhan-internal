@@ -15,9 +15,14 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('nip')->unique();
-            $table->string('email')->nullable();
-            $table->string('phone')->nullable();
-            $table->string('address')->nullable();
+            $table->string('pangkat')->nullable();
+            $table->string('golongan')->nullable();
+            $table->string('jabatan')->nullable();
+            $table->string('unit_eselon_3')->nullable();
+            $table->boolean('is_pelanggaran')->default(false);
+            $table->longText('pelanggaran')->nullable();
+            $table->boolean('is_penghargaan')->default(false);
+            $table->longText('penghargaan')->nullable();
             $table->timestamps();
         });
     }

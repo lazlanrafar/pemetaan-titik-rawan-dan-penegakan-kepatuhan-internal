@@ -49,6 +49,8 @@ return new class extends Migration
             $table->string('bukti_foto_4')->nullable();
             $table->string('bukti_foto_5')->nullable();
             $table->string('bukti_foto_6')->nullable();
+            $table->integer('id_pengarah')->nullable();
+            $table->longText('arahan')->nullable();
             $table->timestamps();
         });
     }

@@ -17,6 +17,8 @@ return new class extends Migration
             $table->longText('nama_kegiatan');
             $table->longText('jenis_kegiatan');
             $table->longText('lokasi_kegiatan');
+            $table->integer('id_pengarah')->nullable();
+            $table->longText('arahan')->nullable();
             $table->timestamps();
         });
     }

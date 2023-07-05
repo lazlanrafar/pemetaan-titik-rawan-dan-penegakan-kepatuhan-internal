@@ -16,10 +16,6 @@ return new class extends Migration
             $table->integer('id_kegiatan_internal');
             $table->integer('id_pegawai');
             $table->boolean('is_kehadiran')->default(false);
-            $table->boolean('is_pelanggaran')->default(false);
-            $table->longText('pelanggaran')->nullable();
-            $table->boolean('is_penghargaan')->default(false);
-            $table->longText('penghargaan')->nullable();
             $table->timestamps();
         });
     }
