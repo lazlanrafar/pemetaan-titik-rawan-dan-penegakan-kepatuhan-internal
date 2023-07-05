@@ -32,9 +32,9 @@
                                         <td>{{ $item->jenis_kegiatan }}</td>
                                     </tr>
                                     <tr>
-                                        <td class="fw-medium">Lokasi</td>
+                                        <td class="fw-medium">Tanggal</td>
                                         <td>:</td>
-                                        <td>{{ $item->lokasi_kegiatan }}</td>
+                                        <td>{{ $item->tanggal_kegiatan }}</td>
                                     </tr>
                                 </table>
                             </div>
@@ -45,8 +45,6 @@
                                         <th>NIP</th>
                                         <th>Nama</th>
                                         <th>Hadir</th>
-                                        <th>Pelanggaran</th>
-                                        <th>Penghargaan</th>
                                         @if (request()->session()->get('user')['role'] === 'Pelaksana')
                                             <th>Action</th>
                                         @endif
@@ -66,7 +64,7 @@
                                                     <span class="badge badge-danger">Tidak Hadir</span>
                                                 @endif
                                             </td>
-                                            <td>
+                                            {{-- <td>
                                                 @if ($detail->is_pelanggaran)
                                                     {{ $detail->pelanggaran }}
                                                 @else
@@ -79,7 +77,7 @@
                                                 @else
                                                     -
                                                 @endif
-                                            </td>
+                                            </td> --}}
                                             @if (request()->session()->get('user')['role'] === 'Pelaksana')
                                                 <td>
                                                     @if (!$detail->is_kehadiran)
@@ -106,7 +104,7 @@
                                                                     showCancelButton: true,
                                                                     confirmButtonColor: '#3085d6',
                                                                     cancelButtonColor: '#d33',
-                                                                    confirmButtonText: 'Ya, hapus!'
+                                                                    confirmButtonText: 'Ya, Hadir!'
                                                                 }).then((result) => {
                                                                     if (result.isConfirmed) {
                                                                         document.getElementById('formHadir' + id).submit();
@@ -115,12 +113,6 @@
                                                             }
                                                         </script>
                                                     @endif
-                                                    <a type="button" class="btn btn-warning" data-toggle="modal"
-                                                        data-target="#formUpdate{{ $detail->id }}">
-                                                        <i class="fa fa-edit"></i>
-                                                    </a>
-                                                    @include('pages.pemantauan-kegiatan-internal.detail-update')
-
                                                 </td>
                                             @endif
                                         </tr>
