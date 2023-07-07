@@ -27,6 +27,8 @@ class Kerawanan extends Model
         'tingkat_pelanggaran',
         'id_pengarah',
         'arahan',
+        'id_tindaklanjut',
+        'tindaklanjut',
     ];
 
     function pengarah(){

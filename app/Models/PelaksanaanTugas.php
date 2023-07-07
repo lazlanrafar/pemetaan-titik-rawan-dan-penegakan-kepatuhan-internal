@@ -41,6 +41,8 @@ class PelaksanaanTugas extends Model
         'dokumentasi_5',
         'id_pengarah',
         'arahan',
+        'id_tindaklanjut',
+        'tindaklanjut',
     ];
 
    function petugas(){

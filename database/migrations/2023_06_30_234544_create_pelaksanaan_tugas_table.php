@@ -38,6 +38,8 @@ return new class extends Migration
             $table->string('dokumentasi_5')->nullable();
             $table->integer('id_pengarah')->nullable();
             $table->longText('arahan')->nullable();
+            $table->integer('id_tindaklanjut')->nullable();
+            $table->longText('tindaklanjut')->nullable();
             $table->timestamps();
         });
     }

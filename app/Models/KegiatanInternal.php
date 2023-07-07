@@ -22,6 +22,8 @@ class KegiatanInternal extends Model
         'tanggal_kegiatan',
         'id_pengarah',
         'arahan',
+        'id_tindaklanjut',
+        'tindaklanjut',
     ];
 
     function petugas(){

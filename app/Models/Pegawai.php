@@ -25,5 +25,9 @@ class Pegawai extends Model
         'pelanggaran',
         'is_penghargaan',
         'penghargaan',
+        'id_pengarah',
+        'arahan',
+        'id_tindaklanjut',
+        'tindaklanjut',
     ];
 }

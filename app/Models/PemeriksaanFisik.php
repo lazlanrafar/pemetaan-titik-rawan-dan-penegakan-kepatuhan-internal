@@ -54,6 +54,8 @@ class PemeriksaanFisik extends Model
         'bukti_foto_6',
         'id_pengarah',
         'arahan',
+        'id_tindaklanjut',
+        'tindaklanjut',
     ];
 
     function petugas(){

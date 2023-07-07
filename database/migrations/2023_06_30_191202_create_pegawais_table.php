@@ -23,6 +23,10 @@ return new class extends Migration
             $table->longText('pelanggaran')->nullable();
             $table->boolean('is_penghargaan')->default(false);
             $table->longText('penghargaan')->nullable();
+            $table->integer('id_pengarah')->nullable();
+            $table->longText('arahan')->nullable();
+            $table->integer('id_tindaklanjut')->nullable();
+            $table->longText('tindaklanjut')->nullable();
             $table->timestamps();
         });
     }

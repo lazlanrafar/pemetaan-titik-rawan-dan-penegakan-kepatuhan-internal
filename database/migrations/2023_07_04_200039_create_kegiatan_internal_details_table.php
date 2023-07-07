@@ -16,6 +16,8 @@ return new class extends Migration
             $table->integer('id_kegiatan_internal');
             $table->integer('id_pegawai');
             $table->boolean('is_kehadiran')->default(false);
+            $table->integer('id_tindaklanjut')->nullable();
+            $table->longText('tindaklanjut')->nullable();
             $table->timestamps();
         });
     }
