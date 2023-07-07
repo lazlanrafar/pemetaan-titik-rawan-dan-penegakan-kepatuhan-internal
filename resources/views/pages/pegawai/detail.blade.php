@@ -12,6 +12,25 @@
                 </button>
             </div>
             <div class="modal-body text-poppins text-sm">
+                @if ($item->arahan)
+                    <div class="card bg-info">
+                        <div class="card-body">
+                            <p>"{{ $item->arahan }}"</p>
+                            <p class="mb-0">
+                                Arahan oleh : {{ $item->pengarah->name }}
+                            </p>
+
+                            <hr>
+
+                            @if ($item->tindaklanjut)
+                                <p>"{{ $item->tindaklanjut }}"</p>
+                                <p class="mb-0">
+                                    Tindak Lanjut oleh : {{ $item->penindaklanjut->name }}
+                                </p>
+                            @endif
+                        </div>
+                    </div>
+                @endif
                 <div class="mb-4">
                     <p class="mb-0 fw-medium">Nama</p>
                     <p>{{ $item->name }}</p>

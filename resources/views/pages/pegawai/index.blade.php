@@ -70,6 +70,14 @@
                                                 </a>
                                                 @include('pages.pegawai.detail')
 
+                                                @if (request()->session()->get('user')['role'] !== 'Superuser')
+                                                    <a type="button" class="btn btn-warning" data-toggle="modal"
+                                                        data-target="#formArahan{{ $item->id }}">
+                                                        <i class="fa fa-pen"></i>
+                                                    </a>
+                                                    @include('pages.pegawai.form-arahan')
+                                                @endif
+
                                                 @if (request()->session()->get('user')['role'] === 'Pelaksana')
                                                     <a type="button" class="btn btn-warning" data-toggle="modal"
                                                         data-target="#formUpdatePerilaku{{ $item->id }}">

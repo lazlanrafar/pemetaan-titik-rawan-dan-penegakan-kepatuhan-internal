@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\User;
 
 class Pegawai extends Model
 {
@@ -30,4 +31,12 @@ class Pegawai extends Model
         'id_tindaklanjut',
         'tindaklanjut',
     ];
+
+    function pengarah(){
+        return $this->belongsTo(User::class, 'id_pengarah');
+   }
+
+   function penindaklanjut(){
+       return $this->belongsTo(User::class, 'id_tindaklanjut');
+   }
 }
