@@ -6,7 +6,6 @@
             <form action="{{ route('pemantauan-kegiatan-internal.update', $item->id) }}" method="POST">
                 @csrf
                 @method('PUT')
-                <input type="hidden" name="id_pengarah" value="{{ request()->session()->get('user')['id'] }}">
                 <div class="modal-header">
                     <h5 class="modal-title" id="formArahanLabel">
                         Update Data Arahan
@@ -15,16 +14,34 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <div class="modal-body">
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="form-group">
-                                <label for="arahan">Arahan</label>
-                                <textarea class="form-control" id="arahan" name="arahan" required>{{ $item->arahan }}</textarea>
+                @if (request()->session()->get('user')['role'] === 'Kepala Seksi' ||
+                        request()->session()->get('user')['role'] === 'Kepala Bidang')
+                    <div class="modal-body">
+                        <input type="hidden" name="id_pengarah" value="{{ request()->session()->get('user')['id'] }}">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <label for="arahan">Arahan</label>
+                                    <textarea class="form-control" id="arahan" name="arahan" required>{{ $item->arahan }}</textarea>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                @endif
+                @if (request()->session()->get('user')['role'] === 'Pelaksana')
+                    <div class="modal-body">
+                        <input type="hidden" name="id_tindaklanjut"
+                            value="{{ request()->session()->get('user')['id'] }}">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <label for="tindaklanjut">Tindak Lanjut</label>
+                                    <textarea class="form-control" id="tindaklanjut" name="tindaklanjut" required>{{ $item->tindaklanjut }}</textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                @endif
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">
                         Close

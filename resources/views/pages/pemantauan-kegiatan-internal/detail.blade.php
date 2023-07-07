@@ -56,6 +56,20 @@
                                     </table>
                                     <p class="mt-2">{{ $item->arahan }}</p>
                                 @endif
+                                @if ($item->tindaklanjut)
+                                    <br>
+                                    <table>
+                                        <tr>
+                                            <td class="fw-medium" style="min-width: 160px">Tindak Lanjut Oleh</td>
+                                            <td style="min-width: 20px">:</td>
+                                            <td>{{ $item->penindaklanjut->name }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="fw-medium">Tindak Lanjut</td>
+                                        </tr>
+                                    </table>
+                                    <p class="mt-2">{{ $item->tindaklanjut }}</p>
+                                @endif
                             </div>
                             <table id="defaultTable" class="table table-bordered table-striped">
                                 <thead>
