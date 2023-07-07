@@ -58,8 +58,7 @@
                                                 </a>
                                                 @include('pages.pengawasan-pelaksanaan-tugas.detail')
 
-                                                @if (request()->session()->get('user')['role'] === 'Kepala Seksi' ||
-                                                        request()->session()->get('user')['role'] === 'Kepala Bidang')
+                                                @if (request()->session()->get('user')['role'] !== 'Superuser')
                                                     <a type="button" class="btn btn-warning" data-toggle="modal"
                                                         data-target="#formArahan{{ $item->id }}">
                                                         <i class="fa fa-pen"></i>
