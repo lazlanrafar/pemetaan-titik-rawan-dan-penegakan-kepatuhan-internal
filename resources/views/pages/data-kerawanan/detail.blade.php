@@ -19,6 +19,15 @@
                             <p class="mb-0">
                                 Arahan oleh : {{ $item->pengarah->name }}
                             </p>
+
+                            <hr>
+
+                            @if ($item->tindaklanjut)
+                                <p>"{{ $item->tindaklanjut }}"</p>
+                                <p class="mb-0">
+                                    Tindak Lanjut oleh : {{ $item->penindaklanjut->name }}
+                                </p>
+                            @endif
                         </div>
                     </div>
                 @endif

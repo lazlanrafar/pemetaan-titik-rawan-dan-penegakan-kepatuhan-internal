@@ -34,4 +34,8 @@ class Kerawanan extends Model
     function pengarah(){
          return $this->belongsTo(User::class, 'id_pengarah');
     }
+
+    function penindaklanjut(){
+         return $this->belongsTo(User::class, 'id_tindaklanjut');
+    }
 }
