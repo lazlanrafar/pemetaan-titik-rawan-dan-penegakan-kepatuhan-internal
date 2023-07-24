@@ -18,6 +18,10 @@ return new class extends Migration
             $table->boolean('is_kehadiran')->default(false);
             $table->integer('id_tindaklanjut')->nullable();
             $table->longText('tindaklanjut')->nullable();
+            $table->boolean('is_pelanggaran')->default(false);
+            $table->longText('pelanggaran')->nullable();
+            $table->boolean('is_penghargaan')->default(false);
+            $table->longText('penghargaan')->nullable();
             $table->timestamps();
         });
     }

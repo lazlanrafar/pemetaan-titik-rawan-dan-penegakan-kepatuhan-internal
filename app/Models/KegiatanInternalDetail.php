@@ -20,6 +20,10 @@ class KegiatanInternalDetail extends Model
         'id_kegiatan_internal',
         'id_pegawai',
         'is_kehadiran',
+        'is_pelanggaran',
+        'pelanggaran',
+        'is_penghargaan',
+        'penghargaan',
     ];
 
     function kegiatan_internal(){

@@ -19,10 +19,6 @@ return new class extends Migration
             $table->string('golongan')->nullable();
             $table->string('jabatan')->nullable();
             $table->string('unit_eselon_3')->nullable();
-            $table->boolean('is_pelanggaran')->default(false);
-            $table->longText('pelanggaran')->nullable();
-            $table->boolean('is_penghargaan')->default(false);
-            $table->longText('penghargaan')->nullable();
             $table->integer('id_pengarah')->nullable();
             $table->longText('arahan')->nullable();
             $table->integer('id_tindaklanjut')->nullable();
