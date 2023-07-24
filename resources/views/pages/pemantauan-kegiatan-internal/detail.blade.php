@@ -78,6 +78,8 @@
                                         <th>NIP</th>
                                         <th>Nama</th>
                                         <th>Hadir</th>
+                                        <th>Pelanggaran</th>
+                                        <th>Penghargaan</th>
                                         @if (request()->session()->get('user')['role'] === 'Pelaksana')
                                             <th>Action</th>
                                         @endif
@@ -97,7 +99,7 @@
                                                     <span class="badge badge-danger">Tidak Hadir</span>
                                                 @endif
                                             </td>
-                                            {{-- <td>
+                                            <td>
                                                 @if ($detail->is_pelanggaran)
                                                     {{ $detail->pelanggaran }}
                                                 @else
@@ -110,7 +112,7 @@
                                                 @else
                                                     -
                                                 @endif
-                                            </td> --}}
+                                            </td>
                                             @if (request()->session()->get('user')['role'] === 'Pelaksana')
                                                 <td>
                                                     @if (!$detail->is_kehadiran)
@@ -146,6 +148,11 @@
                                                             }
                                                         </script>
                                                     @endif
+                                                    <a type="button" class="btn btn-warning" data-toggle="modal"
+                                                        data-target="#formUpdatePerilaku{{ $detail->id }}">
+                                                        Perilaku
+                                                    </a>
+                                                    @include('pages.pemantauan-kegiatan-internal.update-perilaku')
                                                 </td>
                                             @endif
                                         </tr>
