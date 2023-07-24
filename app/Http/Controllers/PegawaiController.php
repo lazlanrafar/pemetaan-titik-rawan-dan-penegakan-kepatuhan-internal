@@ -18,18 +18,27 @@ class PegawaiController extends Controller
         foreach ($items as $item) {
             $all_kegiatan = KegiatanInternalDetail::where('id_pegawai', $item->id)->get();
 
+            // tambah tahun kegiatan
+            foreach ($all_kegiatan as $kegiatan) {
+                $kegiatan->tahun = $kegiatan->kegiatan_internal->tanggal_kegiatan;
+            }
+
             $total_kegiatan = count($all_kegiatan);
             $total_kehadiran = count($all_kegiatan->where('is_kehadiran', true));
+
+            $total_pelanggaran = count($all_kegiatan->where('is_pelanggaran', true));
+            $total_penghargaan = count($all_kegiatan->where('is_penghargaan', true));
 
             $presentase_kehadiran = $total_kegiatan == 0 ? 0 : round($total_kehadiran / $total_kegiatan * 100, 2);
             $point_kehadiran = $presentase_kehadiran == 100 ? 80 : round($presentase_kehadiran / 100 * 80, 2);
 
-            $point_pelanggaran = $item->is_pelanggaran ? 20 : 0;
-            $point_penghargaan = $item->is_penghargaan ? 20 : 0;
+            $point_pelanggaran = $total_pelanggaran * 20;
+            $point_penghargaan = $total_penghargaan * 20;
 
             $item->total_kegiatan = $total_kegiatan;
             $item->presentase_kehadiran = $presentase_kehadiran;
             $item->total_point = $point_kehadiran - $point_pelanggaran + $point_penghargaan;
+            $item->kegiatan = $all_kegiatan;
         }
 
         return view('pages.pegawai.index', [

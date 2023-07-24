@@ -59,11 +59,23 @@
                     <div class="card-body">
                         <div class="mb-4 ">
                             <p class="mb-0 fw-medium text-success">Penghargaan</p>
-                            <p>{{ $item->penghargaan }}</p>
+                            <ul>
+                                @foreach ($item->kegiatan as $itt)
+                                    @if ($itt->is_penghargaan)
+                                        <li>{{ $itt->penghargaan }} ({{ $itt->tahun }})</li>
+                                    @endif
+                                @endforeach
+                            </ul>
                         </div>
                         <div class="mb-4">
                             <p class="mb-0 fw-medium text-danger">Pelanggaran</p>
-                            <p>{{ $item->pelanggaran }}</p>
+                            <ul>
+                                @foreach ($item->kegiatan as $itt)
+                                    @if ($itt->is_pelanggaran)
+                                        <li>{{ $itt->pelanggaran }} ({{ $itt->tahun }})</li>
+                                    @endif
+                                @endforeach
+                            </ul>
                         </div>
                         <hr>
                         <div class="mb-4">
